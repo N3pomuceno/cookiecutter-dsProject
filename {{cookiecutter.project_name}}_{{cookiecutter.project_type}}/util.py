@@ -1,0 +1,1 @@
+# Arquivo de funções que serão utilizadas nos cadernos.
