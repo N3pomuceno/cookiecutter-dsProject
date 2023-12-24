@@ -1,0 +1,12 @@
+{
+    "project_name":"",
+    "project_type":[
+        "EDA",
+        "ML-Scikit Learn",
+        "ML-Pytorch",
+        "ML-TensorFlow",
+        "ML-All"
+    ],
+    "description":"",
+    "repository_name":"{{cookiecutter.project_name}}_{{cookiecutter.project_type}}"
+}

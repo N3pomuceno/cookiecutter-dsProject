@@ -1,0 +1,15 @@
+jupyter
+jupyter notebook
+jupyter lab
+pandas
+matplotlib
+seaborn
+{% if cookiecutter.project_type not in ["EDA", "ML-Pytorch", "ML-Tensorflow"] -%}
+scikit-learn
+{% endif -%}
+{% if cookiecutter.project_type not in ["EDA", "ML-Scikit Learn", "ML-Tensorflow"] -%}
+torch
+{% endif -%}
+{% if cookiecutter.project_type not in ["EDA", "ML-Scikit Learn", "ML-Pytorch"] -%}
+tensorflow
+{% endif -%}
