@@ -7,6 +7,10 @@
         "ML-TensorFlow",
         "ML-All"
     ],
+    "jupyterlab":[
+        "Yes",
+        "No"
+    ],
     "description":"",
     "repository_name":"{{cookiecutter.project_name}}_{{cookiecutter.project_type}}"
 }

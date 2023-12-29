@@ -21,24 +21,14 @@ cd ..
 cookiecutter cookiecutter-dsProject
 ```
 
-Executado o código do cookiecutter, com o projeto criado com sucesso, você poderá sair do ambiente virtual do cookiecutter e disso ir para o diretório do novo projeto criado e entrar no ambiente virtual do projeto para começar a fazer o projeto! Inicialmente é necessário criar instalar as dependências que estão faltando, porém futuramente um objetivo é fazer com que o próprio cookicutter crie o ambiente virtual pronto.
+Executado o código do cookiecutter, com o projeto criado com sucesso, você poderá sair do ambiente virtual do cookiecutter e disso ir para o diretório do novo projeto criado e entrar no ambiente virtual do projeto para começar a fazer o projeto! 
 
 ```bash
 # sair do ambiente virtual
 deactivate
-
-# Entrar no ambiente virtual do projeto que foi criado, primeiro entra no 
-# diretório do projeto e depois entra com o código
-source .venv/bin/activate
-
-# Instalar dependências faltantes do projeto
-pip install -r requirements.txt
-
-# Entrar no jupyter 
-jupyter notebook #Ou o Lab se preferir.
 ```
+Inicialmente é necessário criar instalar as dependências que estão faltando, porém futuramente um objetivo é fazer com que o próprio cookicutter crie o ambiente virtual pronto. Então enquanto não existe isso, a partir daqui, tudo será feito dentro da venv do próprio projeto.
 
----
 
 ### Explicação das variáveis
 

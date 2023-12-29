@@ -1,6 +1,7 @@
 jupyter
-jupyter notebook
-jupyter lab
+{% if cookiecutter.jupyterlab == "Yes" -%}
+jupyterlab
+{% endif -%}
 pandas
 matplotlib
 seaborn
