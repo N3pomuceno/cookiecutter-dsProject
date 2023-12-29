@@ -1,5 +1,5 @@
 jupyter
-{% if cookiecutter.jupyterlab == "Yes" -%}
+{% if cookiecutter.use_jupyterlab == "Yes" -%}
 jupyterlab
 {% endif -%}
 pandas

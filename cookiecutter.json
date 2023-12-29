@@ -7,7 +7,11 @@
         "ML-TensorFlow",
         "ML-All"
     ],
-    "jupyterlab":[
+    "use_jupyterlab":[
+        "Yes",
+        "No"
+    ],
+    "create_venv":[
         "Yes",
         "No"
     ],

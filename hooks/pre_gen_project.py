@@ -1,22 +1,17 @@
-import subprocess
-
-
 def condicionais(nome_projeto):
     if len(nome_projeto) > 16:
         raise Exception('O nome do projeto deve ter menos de 16 caracteres')
 
     if " "  in nome_projeto:
-        raise Exception('O nome do projeto não deve haver espaços em branco, coloque underline')
+        raise Exception('O nome do projeto não deve haver espaços em branco, substitua por underline')
 
 
 
 
 def main():
     nome_projeto = "{{cookiecutter.project_name}}"
-    nome_dir = "{{cookiecutter.project_name}}_{{cookiecutter.project_type}}"
-
     condicionais(nome_projeto)
-    #cria_venv_completa(nome_dir)
+    
 
 
 if __name__ == '__main__':
