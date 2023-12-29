@@ -2,20 +2,22 @@
 
 De forma resumida: {{cookiecutter.description}}
 
-Enquanto o cookiecutter não cria venv automaticamente, segue os códigos que serão necessários para quando iniciar o projeto, instalar as dependências corretamente:
+Caso o cookiecutter não crie venv automaticamente, dado que você tenha escolhido essa opção, segue os códigos sugeridos que serão necessários para criar um ambiente virtual e iniciar o projeto, com a instalação as dependências corretamente:
 
-```
-# Entrar no ambiente virtual do projeto que foi criado, primeiro entra no 
-# diretório do projeto e depois entra com o código
+```bash
+# Cria venv:
+python3 -m venv .venv
+
+# Entra no ambiente virtual do projeto que foi criado
 source .venv/bin/activate
 
-# Instalar dependências faltantes do projeto
+# Instala dependências faltantes do projeto
 pip install -r requirements.txt
 
-# Entrar no jupyter 
-jupyter notebook #Ou o Lab se preferir.
+# Entra no jupyter 
+jupyter notebook #Ou o Lab se preferir/foi instalado.
 ```
 
 ---
 
-Após isso, já é possível dedicar se ao projeto, adicionando os dados ou até ir direto para os notebooks, deixando claro que é necessário estar na venv para usar os notebooks.
+Após isso, já é possível se dedicar ao projeto, adicionando os dados ou até ir direto para os notebooks, lembrando que a ideia é estar na venv para usar os notebooks, para não ter nenhum pacote instalado no computador em si.
