@@ -7,7 +7,7 @@
         "ML-TensorFlow",
         "ML-All"
     ],
-    "use_jupyterlab":[
+    "use_jupyter":[
         "Yes",
         "No"
     ],

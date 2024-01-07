@@ -1,6 +1,5 @@
+{% if cookiecutter.use_jupyter == "Yes" -%}
 jupyter
-{% if cookiecutter.use_jupyterlab == "Yes" -%}
-jupyterlab
 {% endif -%}
 pandas
 matplotlib

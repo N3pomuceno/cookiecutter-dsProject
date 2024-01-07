@@ -14,8 +14,11 @@ def criacao_git_ignore():
     os.remove('.gitignore_project')
 
 
-def remocao_arquivo_extra(proj_tipo):
-    if proj_tipo == "EDA":
+def remocao_arquivo_extra(proj_tipo, use_jupyter):
+    if (use_jupyter == "No"):
+        os.remove('Modelling_{{cookiecutter.project_name}}.ipynb')
+        os.remove('EDA_{{cookiecutter.project_name}}.ipynb')
+    elif (proj_tipo == "EDA"):
         os.remove('Modelling_{{cookiecutter.project_name}}.ipynb')
 
 
@@ -39,8 +42,9 @@ def instala_dependencias(caminho_venv, caminho_dependencias):
 def main():
     proj_tipo = "{{cookiecutter.project_type}}"
     preinstallvenv = "{{cookiecutter.create_venv}}"
+    use_jupyter = "{{cookiecutter.use_jupyter}}"
     criacao_git_ignore()
-    remocao_arquivo_extra(proj_tipo)
+    remocao_arquivo_extra(proj_tipo, use_jupyter)
     if preinstallvenv == "Yes":
         cria_venv_completa()
 
