@@ -34,7 +34,7 @@ deactivate
 
 * project_name: Nome do projeto que será definido. Será ele é nome que aparecerá no nome do diretório do projeto além do tipo e também aparecerá no repositório
 * project_type: Tipo do projeto, definindo que biblioteca será usado para o aprendizado de máquina, ou se realmente vai ser usado o aprendizado de máquina, e não será somente exploração de dados (EDA)
-* use_jupyterlab: Usado para definir se será instalado o pacote associado ao jupyter lab.
+* use_jupyter: Usado para definir se será instalado o pacote associado ao jupyter. Caso queira só usar arquivos python ou algo do tipo para não criar os notebooks em vão.
 * create_venv: Criação do ambiente virtual será definido por essa variável. Caso rejeite, não será criado.
 * description: Descrição que aparecerá no README do projeto.
 * repository_name: Por padrão seria o nome do projeto e seu tipo, porém pode ser alterado, mas a ideia é que o nome do repositório seria criado de acordo com essa variável.
