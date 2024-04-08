@@ -1,6 +1,8 @@
 {
-    "project_name": "",
-    "project_type": [
+    "project_name":"",
+    "project_author":"",
+    "author_email":"",
+    "project_type":[
         "EDA",
         "ML-Scikit Learn",
         "ML-PyTorch",

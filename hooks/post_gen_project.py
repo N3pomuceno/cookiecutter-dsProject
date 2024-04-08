@@ -21,31 +21,22 @@ def remover_arquivos_extras(proj_tipo, use_jupyter):
     elif (proj_tipo == "EDA"):
         os.remove('Modelling_{{cookiecutter.project_name}}.ipynb')
 
-def criar_venv():
-    comando_bash = "python3 -m venv .venv"
-    subprocess.run(comando_bash, shell=True, check=True)
 
 
-def instalar_dependencias(caminho_venv, caminho_dependencias):
-    comando_pip = f"source {caminho_venv}/bin/activate && pip install -r {caminho_dependencias}"
-    subprocess.run(comando_pip, shell=True, executable="bash", check=True)
+def cria_venv():
+    comando_bash = "poetry install"
+    subprocess.run(comando_bash, shell=True)
 
-
-def criar_venv_completo():
-    criar_venv()
-    instalar_dependencias('.venv', 'requirements.txt')
 
 
 def main():
-    proj_tipo = "{{ cookiecutter.project_type }}"
-    cria_venv = "{{ cookiecutter.create_venv }}"
-    usa_jupyter = "{{ cookiecutter.use_jupyter }}"
-
-    criar_gitignore() 
-    remover_arquivos_extras(proj_tipo, usa_jupyter)
-    
-    if cria_venv == "Yes":
-        criar_venv_completo()
+    proj_tipo = "{{cookiecutter.project_type}}"
+    preinstallvenv = "{{cookiecutter.create_venv}}"
+    use_jupyter = "{{cookiecutter.use_jupyter}}"
+    criacao_git_ignore()
+    remocao_arquivo_extra(proj_tipo, use_jupyter)
+    if preinstallvenv == "Yes":
+        cria_venv()
 
 
 if __name__ == '__main__':

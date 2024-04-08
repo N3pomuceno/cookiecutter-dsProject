@@ -11,14 +11,12 @@ Este projeto é um esqueleto para um projeto de ciência de dados, projetado par
 Se o ambiente virtual (venv) não foi criado automaticamente ao iniciar o projeto, você pode configurá-lo manualmente. As etapas a seguir mostram como criar o ambiente virtual, ativá-lo e instalar as dependências do projeto.
 
 ```bash
-# Criar o ambiente virtual (venv)
-python3 -m venv .venv
+# Cria venv:
+poetry install
 
-# Ativar o ambiente virtual
-source .venv/bin/activate
+# Entra no ambiente virtual do projeto que foi criado
+poetry shell
 
-# Instalar as dependências do projeto
-pip install -r requirements.txt
 
 # Iniciar o Jupyter Notebook ou JupyterLab (se preferir)
 jupyter notebook # ou jupyter lab
