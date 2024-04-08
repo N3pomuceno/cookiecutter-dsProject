@@ -1,5 +1,7 @@
 {
     "project_name":"",
+    "project_author":"",
+    "author_email":"",
     "project_type":[
         "EDA",
         "ML-Scikit Learn",

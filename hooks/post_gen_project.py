@@ -22,21 +22,11 @@ def remocao_arquivo_extra(proj_tipo, use_jupyter):
         os.remove('Modelling_{{cookiecutter.project_name}}.ipynb')
 
 
-def cria_venv_completa():
-    caminho_venv = '.venv'
-    caminho_dependencias = 'requirements.txt'
-    cria_venv()
-    instala_dependencias(caminho_venv, caminho_dependencias)
-
 
 def cria_venv():
-    comando_bash = "python3 -m venv .venv"
+    comando_bash = "poetry install"
     subprocess.run(comando_bash, shell=True)
 
-
-def instala_dependencias(caminho_venv, caminho_dependencias):
-    comando_pip = "source {}/bin/activate && pip install -r {}".format(caminho_venv, caminho_dependencias)
-    subprocess.run(comando_pip, shell=True, executable="bash")
 
 
 def main():
@@ -46,7 +36,7 @@ def main():
     criacao_git_ignore()
     remocao_arquivo_extra(proj_tipo, use_jupyter)
     if preinstallvenv == "Yes":
-        cria_venv_completa()
+        cria_venv()
 
 
 if __name__ == '__main__':

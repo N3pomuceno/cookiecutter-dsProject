@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "{{cookiecutter.project_name}}"
+version = "0.1.0"
+description = "{{cookiecutter.description}}"
+authors = ["{{cookiecutter.project_author}} <{{cookiecutter.author_email}}>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pandas = "*"
+{% if cookiecutter.project_type not in ["EDA", "ML-Pytorch", "ML-Tensorflow"] -%}
+scikit-learn = "*"
+{% endif -%}
+{% if cookiecutter.project_type not in ["EDA", "ML-Scikit Learn", "ML-Tensorflow"] -%}
+torch = "*"
+{% endif -%}
+{% if cookiecutter.project_type not in ["EDA", "ML-Scikit Learn", "ML-Pytorch"] -%}
+tensorflow = "*"
+{% endif -%}
+
+
+[tool.poetry.dev-dependencies]
+{% if cookiecutter.use_jupyter == "Yes" -%}
+jupyter = "*"
+{% endif -%}
+matplotlib = "*"
+seaborn = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+

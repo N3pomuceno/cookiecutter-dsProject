@@ -6,13 +6,11 @@ Caso o cookiecutter não crie venv automaticamente, dado que você tenha escolhi
 
 ```bash
 # Cria venv:
-python3 -m venv .venv
+poetry install
 
 # Entra no ambiente virtual do projeto que foi criado
-source .venv/bin/activate
+poetry shell
 
-# Instala dependências faltantes do projeto
-pip install -r requirements.txt
 
 # Entra no jupyter 
 jupyter notebook #Ou o Lab se preferir/foi instalado.
