@@ -14,14 +14,12 @@ def criar_gitignore():
     shutil.copy('.gitignore_project', '.gitignore')
     os.remove('.gitignore_project')
 
-
-def remover_arquivos_extras(proj_tipo, usa_jupyter):
-    if usa_jupyter == "No":
-        os.remove(f'Modelling_{{{{cookiecutter.project_name}}}}.ipynb')
-        os.remove(f'EDA_{{{{cookiecutter.project_name}}}}.ipynb')
-    elif proj_tipo == "EDA":
-        os.remove(f'Modelling_{{{{cookiecutter.project_name}}}}.ipynb')
-
+def remover_arquivos_extras(proj_tipo, use_jupyter):
+    if (use_jupyter == "No"):
+        os.remove('Modelling_{{cookiecutter.project_name}}.ipynb')
+        os.remove('EDA_{{cookiecutter.project_name}}.ipynb')
+    elif (proj_tipo == "EDA"):
+        os.remove('Modelling_{{cookiecutter.project_name}}.ipynb')
 
 def criar_venv():
     comando_bash = "python3 -m venv .venv"
