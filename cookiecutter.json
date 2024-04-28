@@ -1,20 +1,20 @@
 {
-    "project_name":"",
-    "project_type":[
+    "project_name": "",
+    "project_type": [
         "EDA",
         "ML-Scikit Learn",
-        "ML-Pytorch",
+        "ML-PyTorch",
         "ML-TensorFlow",
         "ML-All"
     ],
-    "use_jupyter":[
+    "use_jupyter": [
         "Yes",
         "No"
     ],
-    "create_venv":[
+    "create_venv": [
         "Yes",
         "No"
     ],
-    "description":"",
-    "repository_name":"{{cookiecutter.project_name}}_{{cookiecutter.project_type}}"
+    "description": "",
+    "repository_name": "{{ cookiecutter.project_name }}_{{ cookiecutter.project_type }}"
 }
