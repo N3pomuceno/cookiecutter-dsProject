@@ -1,52 +1,51 @@
-# Importação das bibliotecas 
 import shutil
 import os
 import subprocess
 
-# Funções dedicadas após a execução do cookiecutter, ou seja, criado o projeto, 
-# Agora esse arquivo será executado, como o foco principal em:
-# Criação do arquivo .gitignore correto.
-# Remoção dos arquivos extras de acordo com o tipo do projeto
-# Criação do ambiente virtual, venv.
 
-def criacao_git_ignore():
-    shutil.copy('.gitignore_project','.gitignore')
+# Funções dedicadas a serem executadas após a criação do projeto com o Cookiecutter.
+# O foco principal é:
+# - Criar o arquivo .gitignore apropriado.
+# - Remover arquivos extras conforme o tipo de projeto.
+# - Criar o ambiente virtual (venv) e instalar as dependências.
+
+
+def criar_gitignore():
+    shutil.copy('.gitignore_project', '.gitignore')
     os.remove('.gitignore_project')
 
-
-def remocao_arquivo_extra(proj_tipo, use_jupyter):
+def remover_arquivos_extras(proj_tipo, use_jupyter):
     if (use_jupyter == "No"):
         os.remove('Modelling_{{cookiecutter.project_name}}.ipynb')
         os.remove('EDA_{{cookiecutter.project_name}}.ipynb')
     elif (proj_tipo == "EDA"):
         os.remove('Modelling_{{cookiecutter.project_name}}.ipynb')
 
-
-def cria_venv_completa():
-    caminho_venv = '.venv'
-    caminho_dependencias = 'requirements.txt'
-    cria_venv()
-    instala_dependencias(caminho_venv, caminho_dependencias)
-
-
-def cria_venv():
+def criar_venv():
     comando_bash = "python3 -m venv .venv"
-    subprocess.run(comando_bash, shell=True)
+    subprocess.run(comando_bash, shell=True, check=True)
 
 
-def instala_dependencias(caminho_venv, caminho_dependencias):
-    comando_pip = "source {}/bin/activate && pip install -r {}".format(caminho_venv, caminho_dependencias)
-    subprocess.run(comando_pip, shell=True, executable="bash")
+def instalar_dependencias(caminho_venv, caminho_dependencias):
+    comando_pip = f"source {caminho_venv}/bin/activate && pip install -r {caminho_dependencias}"
+    subprocess.run(comando_pip, shell=True, executable="bash", check=True)
+
+
+def criar_venv_completo():
+    criar_venv()
+    instalar_dependencias('.venv', 'requirements.txt')
 
 
 def main():
-    proj_tipo = "{{cookiecutter.project_type}}"
-    preinstallvenv = "{{cookiecutter.create_venv}}"
-    use_jupyter = "{{cookiecutter.use_jupyter}}"
-    criacao_git_ignore()
-    remocao_arquivo_extra(proj_tipo, use_jupyter)
-    if preinstallvenv == "Yes":
-        cria_venv_completa()
+    proj_tipo = "{{ cookiecutter.project_type }}"
+    cria_venv = "{{ cookiecutter.create_venv }}"
+    usa_jupyter = "{{ cookiecutter.use_jupyter }}"
+
+    criar_gitignore() 
+    remover_arquivos_extras(proj_tipo, usa_jupyter)
+    
+    if cria_venv == "Yes":
+        criar_venv_completo()
 
 
 if __name__ == '__main__':

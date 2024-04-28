@@ -1,23 +1,45 @@
 # Projeto de {{cookiecutter.project_name}}
 
-De forma resumida: {{cookiecutter.description}}
+## Descrição
 
-Caso o cookiecutter não crie venv automaticamente, dado que você tenha escolhido essa opção, segue os códigos sugeridos que serão necessários para criar um ambiente virtual e iniciar o projeto, com a instalação as dependências corretamente:
+{{cookiecutter.description}}
+
+Este projeto é um esqueleto para um projeto de ciência de dados, projetado para ajudá-lo a começar rapidamente. Ele fornece uma estrutura organizada, com suporte para Jupyter Notebooks, um ambiente virtual para gerenciamento de dependências, e diretórios predefinidos para dados, notebooks e outros recursos.
+
+## Configuração do Ambiente Virtual
+
+Se o ambiente virtual (venv) não foi criado automaticamente ao iniciar o projeto, você pode configurá-lo manualmente. As etapas a seguir mostram como criar o ambiente virtual, ativá-lo e instalar as dependências do projeto.
 
 ```bash
-# Cria venv:
+# Criar o ambiente virtual (venv)
 python3 -m venv .venv
 
-# Entra no ambiente virtual do projeto que foi criado
+# Ativar o ambiente virtual
 source .venv/bin/activate
 
-# Instala dependências faltantes do projeto
+# Instalar as dependências do projeto
 pip install -r requirements.txt
 
-# Entra no jupyter 
-jupyter notebook #Ou o Lab se preferir/foi instalado.
+# Iniciar o Jupyter Notebook ou JupyterLab (se preferir)
+jupyter notebook # ou jupyter lab
 ```
 
----
+## Estrutura do Projeto
 
-Após isso, já é possível se dedicar ao projeto, adicionando os dados ou até ir direto para os notebooks, lembrando que a ideia é estar na venv para usar os notebooks, para não ter nenhum pacote instalado no computador em si.
+A estrutura do projeto é organizada para facilitar o desenvolvimento de ciência de dados. Aqui está uma visão geral dos diretórios:
+
+- **data/**: Diretório para armazenar dados brutos e processados.
+
+- **notebooks/**: Local para Jupyter Notebooks.
+
+- **src/**: Código fonte para o projeto.
+
+- **outputs/**: Saídas do projeto, como gráficos ou relatórios.
+
+## Dicas para Trabalhar no Projeto
+
+- Sempre ative o ambiente virtual antes de trabalhar no projeto para garantir que está usando as dependências corretas.
+
+- Mantenha o arquivo requirements.txt atualizado para refletir as dependências necessárias.
+
+- Use git para controle de versão e faça commits regulares para rastrear o progresso.

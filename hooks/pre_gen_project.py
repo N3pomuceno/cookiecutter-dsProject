@@ -1,20 +1,18 @@
-# Funções dedicadas a verificações de nomes colocados para o projeto, antes de ser criado.
-# Focado principalmente na verificação do nome do projeto. Se há espaços,
-# E quantidade de caracteres limitados a 16.
+# Funções para verificar a validade do nome do projeto antes de sua criação.
+# Focado principalmente na verificação do nome do projeto em relação a espaços
+# e ao limite de caracteres (máximo de 16).
 
-
-def condicionais(nome_projeto):
+def verificar_nome_projeto(nome_projeto):
     if len(nome_projeto) > 16:
-        raise Exception('O nome do projeto deve ter menos de 16 caracteres')
+        raise ValueError("O nome do projeto deve ter no máximo 16 caracteres.")
 
-    if " "  in nome_projeto:
-        raise Exception('O nome do projeto não deve haver espaços em branco, substitua por underline')
+    if " " in nome_projeto:
+        raise ValueError("O nome do projeto não deve conter espaços em branco. Substitua por underline.")
 
 def main():
-    nome_projeto = "{{cookiecutter.project_name}}"
-    condicionais(nome_projeto)
+    nome_projeto = "{{ cookiecutter.project_name }}"
     
-
+    verificar_nome_projeto(nome_projeto)
 
 if __name__ == '__main__':
     main()
