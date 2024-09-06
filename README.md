@@ -16,7 +16,7 @@ Supondo que o repositório foi clonado e você está no diretório do Cookiecutt
    python3 -m venv .venv
    ```
 
-2. **Ativar o ambiente virtual e instalar os requisitos**
+2. **Ativar o ambiente virtual e instalar os requisitos** ! Versão Antiga
 
    Depois de criar o ambiente virtual, ative-o e instale os requisitos necessários para rodar o Cookiecutter. O comando abaixo funciona em sistemas Linux e no Windows com WSL:
 
@@ -61,8 +61,5 @@ Ao criar um projeto com o Cookiecutter, você pode definir várias variáveis qu
 
 - **use_jupyter**: Define se o pacote associado ao Jupyter será instalado, útil se você pretende usar notebooks no projeto.
 
-- **create_venv**: Indica se um ambiente virtual deve ser criado automaticamente ao configurar o projeto.
-
 - **description**: Uma breve descrição do projeto, que será inserida no README.
 
-- **repository_name**: O nome do repositório. Geralmente, é derivado do nome do projeto e do tipo, mas pode ser personalizado conforme necessário.

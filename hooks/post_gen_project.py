@@ -20,14 +20,16 @@ def remover_arquivos_extras(proj_tipo, use_jupyter):
         os.remove('EDA_{{cookiecutter.project_name}}.ipynb')
     elif (proj_tipo == "EDA"):
         os.remove('Modelling_{{cookiecutter.project_name}}.ipynb')
+        shutil.rmtree('./models')
+        shutil.rmtree('./models_results')
 
 
 
 def main():
     proj_tipo = "{{cookiecutter.project_type}}"
     use_jupyter = "{{cookiecutter.use_jupyter}}"
-    criacao_git_ignore()
-    remocao_arquivo_extra(proj_tipo, use_jupyter)
+    criar_gitignore()
+    remover_arquivos_extras(proj_tipo, use_jupyter)
 
 
 if __name__ == '__main__':
