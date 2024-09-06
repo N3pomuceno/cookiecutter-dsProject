@@ -23,20 +23,11 @@ def remover_arquivos_extras(proj_tipo, use_jupyter):
 
 
 
-def cria_venv():
-    comando_bash = "poetry install"
-    subprocess.run(comando_bash, shell=True)
-
-
-
 def main():
     proj_tipo = "{{cookiecutter.project_type}}"
-    preinstallvenv = "{{cookiecutter.create_venv}}"
     use_jupyter = "{{cookiecutter.use_jupyter}}"
     criacao_git_ignore()
     remocao_arquivo_extra(proj_tipo, use_jupyter)
-    if preinstallvenv == "Yes":
-        cria_venv()
 
 
 if __name__ == '__main__':

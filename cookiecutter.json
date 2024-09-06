@@ -4,19 +4,15 @@
     "author_email":"",
     "project_type":[
         "EDA",
-        "ML-Scikit Learn",
-        "ML-PyTorch",
-        "ML-TensorFlow",
-        "ML-All"
+        "ML_Scikit_Learn",
+        "ML_Pytorch",
+        "ML_TensorFlow",
+        "ML_All"
     ],
     "use_jupyter": [
         "Yes",
         "No"
     ],
-    "create_venv": [
-        "Yes",
-        "No"
-    ],
-    "description": "",
-    "repository_name": "{{ cookiecutter.project_name }}_{{ cookiecutter.project_type }}"
+    "description":"",
+    "repository_name":"{{cookiecutter.project_name}}_{{cookiecutter.project_type}}"
 }

@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "cookiecutter-dsproject"
+version = "0.1.0"
+description = "Repositório dedicado a criar formatos padronizados de projetos de Data Science"
+authors = ["Your Name <you@example.com>"]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.10"
+cookiecutter = "^2.6.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
