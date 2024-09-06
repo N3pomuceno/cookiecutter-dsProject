@@ -4,11 +4,11 @@
 
 {{cookiecutter.description}}
 
-Este projeto é um esqueleto para um projeto de ciência de dados, projetado para ajudá-lo a começar rapidamente. Ele fornece uma estrutura organizada, com suporte para Jupyter Notebooks, um ambiente virtual para gerenciamento de dependências, e diretórios predefinidos para dados, notebooks e outros recursos.
+Este projeto é fornece uma estrutura organizada, com suporte para Jupyter Notebooks, um ambiente virtual para gerenciamento de dependências, e diretórios predefinidos para dados, notebooks e outros recursos.
 
 ## Configuração do Ambiente Virtual
 
-Se o ambiente virtual (venv) não foi criado automaticamente ao iniciar o projeto, você pode configurá-lo manualmente. As etapas a seguir mostram como criar o ambiente virtual, ativá-lo e instalar as dependências do projeto.
+As etapas a seguir mostram como criar o ambiente virtual, ativá-lo e instalar as dependências do projeto.
 
 ```bash
 # Cria venv:
