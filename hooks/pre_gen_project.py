@@ -9,10 +9,12 @@ def verificar_nome_projeto(nome_projeto):
     if " " in nome_projeto:
         raise ValueError("O nome do projeto não deve conter espaços em branco. Substitua por underline.")
 
+
 def main():
     nome_projeto = "{{ cookiecutter.project_name }}"
     
     verificar_nome_projeto(nome_projeto)
+
 
 if __name__ == '__main__':
     main()

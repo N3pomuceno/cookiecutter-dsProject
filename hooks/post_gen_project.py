@@ -14,6 +14,7 @@ def criar_gitignore():
     shutil.copy('.gitignore_project', '.gitignore')
     os.remove('.gitignore_project')
 
+
 def remover_arquivos_extras(proj_tipo, use_jupyter):
     if (use_jupyter == "No"):
         os.remove('Modelling_{{cookiecutter.project_name}}.ipynb')
@@ -22,7 +23,6 @@ def remover_arquivos_extras(proj_tipo, use_jupyter):
         os.remove('Modelling_{{cookiecutter.project_name}}.ipynb')
         shutil.rmtree('./models')
         shutil.rmtree('./models_results')
-
 
 
 def main():

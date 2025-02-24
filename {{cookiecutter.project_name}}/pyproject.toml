@@ -1,34 +1,33 @@
-[tool.poetry]
+[project]
 name = "{{cookiecutter.project_name}}"
 version = "0.1.0"
-description = "{{cookiecutter.description}}"
-authors = ["{{cookiecutter.project_author}} <{{cookiecutter.author_email}}>"]
+description = ""
+authors = [
+    {name = "{{cookiecutter.project_author}}",email = "{{cookiecutter.author_email}}"}
+]
 readme = "README.md"
-package-mode = false
-
-[tool.poetry.dependencies]
-python = "^3.10"
-pandas = "*"
+requires-python = ">=3.12"
+dependencies = [
+    "pandas (>=2.2.3,<3.0.0)",
 {% if cookiecutter.project_type in ["ML_All", "ML_Scikit_Learn"] -%}
-scikit-learn = "*"
+    "scikit-learn (>=1.6.1,<2.0.0)",
 {% endif -%}
 {% if cookiecutter.project_type == ["ML_All", "ML_Pytorch"] -%}
-torch = "*"
+    "torch (>=2.6.0,<3.0.0)",
 {% endif -%}
 {% if cookiecutter.project_type == ["ML_All", "ML_Tensorflow"] -%}
-tensorflow = "*"
+    "tensorflow (>=2.18.0,<3.0.0)"
 {% endif -%}
+]
 
-
-[tool.poetry.dev-dependencies]
-{% if cookiecutter.use_jupyter == "Yes" -%}
-jupyter = "*"
-{% endif -%}
-matplotlib = "*"
-seaborn = "*"
 
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
 
-
+[tool.poetry.group.dev.dependencies]
+{% if cookiecutter.use_jupyter == "Yes" -%}
+jupyter = "^1.1.1"
+{% endif -%}
+seaborn = "^0.13.2"
+matplotlib = "^3.10.0"
