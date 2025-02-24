@@ -4,7 +4,7 @@
 
 {{cookiecutter.description}}
 
-Este projeto é fornece uma estrutura organizada, com suporte para Jupyter Notebooks, um ambiente virtual para gerenciamento de dependências, e diretórios predefinidos para dados, notebooks e outros recursos.
+Este projeto já apresenta uma estrutura organizada, com suporte para Jupyter Notebooks, um ambiente virtual para gerenciamento de dependências, e diretórios predefinidos para dados, notebooks e outros recursos.
 
 ## Configuração do Ambiente Virtual
 
@@ -14,12 +14,17 @@ As etapas a seguir mostram como criar o ambiente virtual, ativá-lo e instalar a
 # Cria venv:
 poetry install
 
+# Caso não tenha o plugin do poetry basta fazer a seguinte linha de comando:
+poetry self add poetry-plugin-shell
+
 # Entra no ambiente virtual do projeto que foi criado
 poetry shell
 
-
 # Iniciar o Jupyter Notebook ou JupyterLab (se preferir)
 jupyter notebook # ou jupyter lab
+
+# Ou se caso queira fazer por fora
+poetry run jupyter lab
 ```
 
 ## Estrutura do Projeto

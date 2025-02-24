@@ -2,36 +2,37 @@
 
 O propósito deste projeto é estabelecer o esqueleto de um projeto de ciência de dados, com notebooks pré-configurados, diretórios de dados organizados e requisitos já definidos. O projeto também pode incluir um ambiente virtual para facilitar a execução dos notebooks sem a necessidade de instalar pacotes no sistema local.
 
-No entanto, inicialmente, após clonar o repositório do Cookiecutter, é necessário executar alguns passos para configurar o ambiente virtual (venv). Isso é feito para evitar instalar pacotes diretamente no computador e manter a separação do ambiente do projeto.
 
 ## Configurando o Ambiente Virtual para o Cookiecutter
 
-Supondo que o repositório foi clonado e você está no diretório do Cookiecutter, siga estas etapas:
+Supondo que o repositório foi clonado e você está no diretório do Cookiecutter, utilizando poetry (versão 2.0) basta fazer a seguinte linha de comando para instalar as dependências:
 
-1. **Criar um ambiente virtual venv (venv)**
+1. **Criação de um ambiente virtual venv (venv) e sua instalação**
 
    Para criar o ambiente virtual, execute o seguinte comando:
 
    ```bash
-   python3 -m venv .venv
+   poetry install
    ```
 
-2. **Ativar o ambiente virtual e instalar os requisitos** ! Versão Antiga
+2. **Executar o Cookiecutter**
 
-   Depois de criar o ambiente virtual, ative-o e instale os requisitos necessários para rodar o Cookiecutter. O comando abaixo funciona em sistemas Linux e no Windows com WSL:
+   Para executar o Cookiecutter certifique-se que tenha o plugin para ativar a venv instalada, caso não tenha, basta fazer a seguinte linha de comando:
 
    ```bash
-   source .venv/bin/activate
-   pip install -r requirements.txt
+   poetry self add poetry-plugin-shell
    ```
-
-3. **Executar o Cookiecutter**
+   
+   Após isso, para entrar no ambiente virtual, basta fazer o seguinte comando:
+   ```bash
+   poetry shell
+   ```
 
    Com o ambiente virtual ativado, agora você pode criar a estrutura do projeto usando o Cookiecutter. Primeiro, volte para o diretório pai e, em seguida, execute o comando para criar o novo projeto:
 
    ```bash
    cd ..
-   cookiecutter cookiecutter-dsProject
+   poetry run --diretorycookiecutter cookiecutter-dsProject
    ```
 
 4. **Desativar o ambiente virtual do Cookiecutter**
@@ -48,7 +49,13 @@ Agora que o projeto foi criado, entre no diretório do novo projeto e, se um amb
 
    ```bash
    cd nome_do_novo_projeto
-   source .venv/bin/activate
+
+   poetry install
+
+   poetry shell
+
+   # Ou de forma alternativa trabalhe direto com o poetry run
+   poetry run ...
    ```   
 
 ## Explicação das variáveis
