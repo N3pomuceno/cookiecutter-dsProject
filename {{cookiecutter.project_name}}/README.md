@@ -4,8 +4,6 @@
 
 {{cookiecutter.description}}
 
-Este projeto já apresenta uma estrutura organizada, com suporte para Jupyter Notebooks, um ambiente virtual para gerenciamento de dependências, e diretórios predefinidos para dados, notebooks e outros recursos.
-
 ## Configuração do Ambiente Virtual
 
 As etapas a seguir mostram como criar o ambiente virtual, ativá-lo e instalar as dependências do projeto.
@@ -50,6 +48,19 @@ Além disso, também é adicionado uma ferramenta chamada Data Build Tool ([DBT]
 
 {% endif -%}
 
+Por padrão, o git não é atualizado, caso queira já começar a associar a um repositório:
+
+```bash
+# Inicializa
+git init
+
+# Adiciona repositório remoto
+git remote add origin link_de_https/ssh
+
+# Dá um push para o repositório remoto da branch main.
+git push origin main
+```
+
 ## Estrutura do Projeto
 
 A estrutura do projeto é organizada para facilitar o desenvolvimento de ciência de dados. Aqui está uma visão geral dos diretórios:
@@ -63,6 +74,10 @@ A estrutura do projeto é organizada para facilitar o desenvolvimento de ciênci
 - **outputs/**: Saídas do projeto, como gráficos ou relatórios.
 
 - **models/ e models_results/**: Modelagem e seus resultados, boa prática deixar bem definido, com boas explicações, se possível seguindo o seguinte [padrão](https://arxiv.org/pdf/1810.03993) para explicações.
+
+## Documentações e Orientações
+
+Para maior alinhamento dos usuários, será criado um repositório com dois arquivos markdown, para alinhar as ideias e objetivos para o projeto, com `documentation.md` e outro arquivo `todo.md` para alinhar as tarefas que já foram, estão sendo e também serão feitas.
 
 ## Dicas para Trabalhar no Projeto
 
