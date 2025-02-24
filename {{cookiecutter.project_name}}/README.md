@@ -62,6 +62,8 @@ A estrutura do projeto é organizada para facilitar o desenvolvimento de ciênci
 
 - **outputs/**: Saídas do projeto, como gráficos ou relatórios.
 
+- **models/ e models_results/**: Modelagem e seus resultados, boa prática deixar bem definido, com boas explicações, se possível seguindo o seguinte [padrão](https://arxiv.org/pdf/1810.03993) para explicações.
+
 ## Dicas para Trabalhar no Projeto
 
 - Sempre ative o ambiente virtual antes de trabalhar no projeto para garantir que está usando as dependências corretas (ou pelo menos tenha sempre em mente que é uma boa prática manter os pacotes isolados).
