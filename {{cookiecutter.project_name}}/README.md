@@ -27,6 +27,29 @@ jupyter notebook # ou jupyter lab
 poetry run jupyter lab
 ```
 
+{% if cookiecutter.database == "PostgreSQL" -%}
+
+## Como utilizar o banco de dados
+
+Para usa utilização é necessário ter o docker desktop instalado, e uma vez instalado e rodando, basta fazer a seguinte linha de comando para subir o banco:
+
+```bash
+docker-compose up -d
+```
+
+Após isso, o banco estará em pé, e é possível acessar por algum programa como dbeaver ou tablePlus, com as seguintes informações que estão no `.database_env`.
+
+Quando quiser parar de usar o banco, basta fazer um:
+
+```bash
+docker-compose down
+```
+
+Além disso, também é adicionado uma ferramenta chamada Data Build Tool ([DBT](https://docs.getdbt.com/docs/introduction)), que pode ser usada para facilitar o processo de transformação de dados do banco, podendo criar visualizações, novas tabelas, fazendo testes mantendo a integridade dos dados, vendo também questão de eficiência.
+
+
+{% endif -%}
+
 ## Estrutura do Projeto
 
 A estrutura do projeto é organizada para facilitar o desenvolvimento de ciência de dados. Aqui está uma visão geral dos diretórios:
@@ -41,8 +64,8 @@ A estrutura do projeto é organizada para facilitar o desenvolvimento de ciênci
 
 ## Dicas para Trabalhar no Projeto
 
-- Sempre ative o ambiente virtual antes de trabalhar no projeto para garantir que está usando as dependências corretas.
+- Sempre ative o ambiente virtual antes de trabalhar no projeto para garantir que está usando as dependências corretas (ou pelo menos tenha sempre em mente que é uma boa prática manter os pacotes isolados).
 
-- Mantenha o arquivo requirements.txt atualizado para refletir as dependências necessárias.
+- Mantenha o arquivo pyproject.toml/requirements.txt atualizado para refletir as dependências necessárias.
 
 - Use git para controle de versão e faça commits regulares para rastrear o progresso.

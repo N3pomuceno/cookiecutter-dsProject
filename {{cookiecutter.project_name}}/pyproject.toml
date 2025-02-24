@@ -6,6 +6,7 @@ authors = [
     {name = "{{cookiecutter.project_author}}",email = "{{cookiecutter.author_email}}"}
 ]
 readme = "README.md"
+package-mode = false
 requires-python = ">=3.12"
 dependencies = [
     "pandas (>=2.2.3,<3.0.0)",
@@ -17,6 +18,9 @@ dependencies = [
 {% endif -%}
 {% if cookiecutter.project_type == ["ML_All", "ML_Tensorflow"] -%}
     "tensorflow (>=2.18.0,<3.0.0)"
+{% endif -%}
+{% if cookiecutter.database == "PostgreSQL" -%}
+    "dbt-postgres (>=1.9.0,<2.0.0)"
 {% endif -%}
 ]
 

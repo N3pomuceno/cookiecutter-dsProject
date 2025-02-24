@@ -12,7 +12,6 @@ def verificar_nome_projeto(nome_projeto):
 
 def main():
     nome_projeto = "{{ cookiecutter.project_name }}"
-    
     verificar_nome_projeto(nome_projeto)
 
 
