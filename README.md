@@ -1,72 +1,72 @@
-# Cookiecutter - Projeto de Data Science
+Here’s your translated and improved README with proper formatting, corrections, and better flow for an international audience:  
 
-O propósito deste projeto é estabelecer o esqueleto de um projeto de ciência de dados, com notebooks pré-configurados, diretórios de dados organizados e requisitos já definidos. O projeto também pode incluir um ambiente virtual para facilitar a execução dos notebooks sem a necessidade de instalar pacotes no sistema local.
+---
 
+# Cookiecutter - Data Science Project  
 
-## Configurando o Ambiente Virtual para o Cookiecutter
+The purpose of this project is to establish the skeleton of a data science project, with pre-configured notebooks, organized data directories, and predefined dependencies. The project can also include a virtual environment to facilitate running notebooks without needing to install packages on the local system.  
 
-Supondo que o repositório foi clonado e você está no diretório do Cookiecutter, utilizando poetry (versão 2.0) basta fazer a seguinte linha de comando para instalar as dependências:
+## Setting Up the Virtual Environment for Cookiecutter  
 
-1. **Criação de um ambiente virtual venv (venv) e sua instalação**
+Assuming the repository has been cloned and you are inside the Cookiecutter directory, using **Poetry (version 2.0)**, you can install the dependencies with the following command:  
 
-   Para criar o ambiente virtual, execute o seguinte comando:
+### 1. **Creating and Installing a Virtual Environment (venv)**  
 
-   ```bash
-   poetry install
-   ```
+To create the virtual environment, run:  
 
-2. **Executar o Cookiecutter**
+```bash
+poetry install
+```  
 
-   Para executar o Cookiecutter certifique-se que tenha o plugin para ativar a venv instalada, caso não tenha, basta fazer a seguinte linha de comando:
+### 2. **Running Cookiecutter**  
 
-   ```bash
-   poetry self add poetry-plugin-shell
-   ```
-   
-   Após isso, para entrar no ambiente virtual, basta fazer o seguinte comando:
-   ```bash
-   poetry shell
-   ```
+To run Cookiecutter, ensure you have the **Poetry plugin** for activating the virtual environment installed. If not, install it with:  
 
-   Com o ambiente virtual ativado, agora você pode criar a estrutura do projeto usando o Cookiecutter. Primeiro, volte para o diretório pai e, em seguida, execute o comando para criar o novo projeto:
+```bash
+poetry self add poetry-plugin-shell
+```  
 
-   ```bash
-   cd ..
-   poetry run --diretorycookiecutter cookiecutter-dsProject
-   ```
+Then, enter the virtual environment:  
 
-4. **Desativar o ambiente virtual do Cookiecutter**
+```bash
+poetry shell
+```  
 
-   Depois de criar o novo projeto com sucesso, você pode desativar o ambiente virtual do Cookiecutter:
+With the virtual environment activated, you can now generate the project structure using Cookiecutter. First, go back to the parent directory and run the command:  
 
-   ```bash
-   deactivate
-   ```
+```bash
+cd ..
+cookiecutter cookiecutter-dsProject
+```  
 
-## Iniciar o Novo Projeto
+### 3. **Deactivating the Cookiecutter Virtual Environment**  
 
-Agora que o projeto foi criado, entre no diretório do novo projeto e, se um ambiente virtual foi criado automaticamente, ative-o para começar a trabalhar:
+After successfully creating the new project, you can deactivate the Cookiecutter virtual environment:  
 
-   ```bash
-   cd nome_do_novo_projeto
+```bash
+deactivate
+```  
 
-   poetry install
+## Starting the New Project  
 
-   poetry shell
+Now that the project has been created, navigate to the new project directory and, if a virtual environment was automatically set up, activate it to start working:  
 
-   # Ou de forma alternativa trabalhe direto com o poetry run
-   poetry run ...
-   ```   
+```bash
+cd new_project_name
 
-## Explicação das variáveis
+poetry install
 
-Ao criar um projeto com o Cookiecutter, você pode definir várias variáveis que controlam a configuração do projeto. Aqui está uma explicação de algumas das variáveis importantes:
+poetry shell
 
-- **project_name**: O nome do projeto que aparecerá como o nome do diretório principal. Também pode ser usado para configurar o repositório.
+# Alternatively, you can work directly with poetry run
+poetry run ...
+```  
 
-- **project_type**: O tipo de projeto, que pode determinar as bibliotecas a serem usadas para aprendizado de máquina ou se é apenas para exploração de dados (EDA).
+## Explanation of Variables  
 
-- **use_jupyter**: Define se o pacote associado ao Jupyter será instalado, útil se você pretende usar notebooks no projeto.
+When creating a project with Cookiecutter, you can define several variables that control the project’s configuration. Here are some important ones:  
 
-- **description**: Uma breve descrição do projeto, que será inserida no README.
-
+- **`project_name`**: The project name, which will be used as the main directory name and can also configure the repository.  
+- **`project_type`**: The type of project, which determines the libraries used for machine learning or whether it is just for exploratory data analysis (EDA).  
+- **`use_jupyter`**: Defines whether the package associated with Jupyter will be installed—useful if you plan to work with notebooks.  
+- **`description`**: A short description of the project, which will be inserted into the README.  

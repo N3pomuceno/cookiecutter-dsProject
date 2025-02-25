@@ -1,11 +1,11 @@
 # TODO
 
-Possíveis planos para o futuro para esse projeto:
+Possible future plans for this project:
 
-- [x] Atualizar para o poetry 2.0.1
+- [x] Update to poetry 2.0.1  
 
-- [ ] Adicionar meio de criar repositório direto, provavelmente precisará ter alguma chave configurada anteriormente na máquina, porém acredito que seja viável. Para poder linkar diretamente com o github/gitlab.
+- [ ] Add a way to create a repository directly, which will probably require some pre-configured key on the machine. However, I believe it is feasible to link directly with GitHub/GitLab.  
 
-- [ ] Aumentar a quantidade de bibliotecas, talvez repensar a combinação de *ML_ALL*, para que dê possibilidade para outras bibliotecas.
+- [ ] Increase the number of libraries, maybe reconsider the *ML_ALL* combination to allow for more library options.  
 
-- [ ] Aumentar quantidade de banco de dados que podemos trabalhar com dbt, e também com o dockerfile, ver o que podemos alterar para deixar essa mudança mais prática.
+- [ ] Expand the number of databases we can work with in dbt, as well as in the Dockerfile. Check what we can modify to make this change more practical.  

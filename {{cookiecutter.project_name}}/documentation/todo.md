@@ -1,3 +1,3 @@
 # TODO
 
-- [ ] Atualizar documentação para maiores informações sobre o projeto;
+- [ ] Update the `documentation.md` with more information about the project;
