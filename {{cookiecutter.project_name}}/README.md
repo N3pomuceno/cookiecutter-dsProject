@@ -96,6 +96,11 @@ The project is structured to streamline data science workflows. Below is an over
 └── tests                    # Directory for unit and integration tests
 ```
 
+
+I can't emphasize enough the impact of [Pedro Almeida](https://github.com/allmeidaapedro)'s work, which greatly influenced the structure of the `src` folder through his [project](https://github.com/allmeidaapedro/Churn-Prediction-Credit-Card). Additionally, the idea of documenting model results follows an established [standard](https://arxiv.org/pdf/1810.03993), which particularly caught my attention.  
+
+
+
 ## Documentation and Planning
 
 For better alignment among team members, a repository will include two markdown files:
