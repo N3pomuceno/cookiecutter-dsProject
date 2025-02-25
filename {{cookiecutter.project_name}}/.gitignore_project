@@ -1,4 +1,10 @@
+# Outputs
 data/*
 logs/*
 
+# Settings
 .vscode/
+
+# Arquivos gerados por notebooks
+*/.ipynb_checkpoints/
+.ipynb_checkpoints/
