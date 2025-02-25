@@ -20,7 +20,7 @@ def create_gitignore():
         os.remove(template_path)
 
 
-def remove_extra_files(project_type, use_jupyter, database):
+def remove_extra_files(project_type, use_jupyter, database, tests):
     """
     Removes unnecessary files based on project settings.
 
@@ -32,11 +32,7 @@ def remove_extra_files(project_type, use_jupyter, database):
 
     # Remove Jupyter notebooks if not used
     if use_jupyter == "No":
-        files = ['Modelling_{{cookiecutter.project_name}}.ipynb', 'EDA_{{cookiecutter.project_name}}.ipynb']
-        for file in files:
-            filepath = os.path.join(PROJECT_DIRECTORY, file)
-            if os.path.exists(filepath):
-                os.remove(filepath)
+        shutil.rmtree('./notebooks', ignore_errors=True)
 
     # Remove modeling files and directories if project is EDA
     if project_type == "EDA":
@@ -56,7 +52,10 @@ def remove_extra_files(project_type, use_jupyter, database):
             if os.path.exists(filepath):
                 os.remove(filepath)
         shutil.rmtree('./sql', ignore_errors=True)
-    
+
+    # Remove tests if not used
+    if tests == "No":
+        shutil.rmtree('./tests', ignore_errors=True)
     logger.info('Extra files successfully removed!')
 
 
@@ -69,9 +68,10 @@ def main():
     project_type = "{{cookiecutter.project_type}}"
     use_jupyter = "{{cookiecutter.use_jupyter}}"
     database = "{{cookiecutter.database}}"
+    tests = "{{cookiecutter.use_tests}}"
 
     create_gitignore()
-    remove_extra_files(project_type, use_jupyter, database)
+    remove_extra_files(project_type, use_jupyter, database, tests)
 
     logger.info('Post-processing completed!')
     logger.info('Remember to create a virtual environment and install the project dependencies. 😉')

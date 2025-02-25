@@ -6,10 +6,12 @@ authors = [
     {name = "{{cookiecutter.project_author}}",email = "{{cookiecutter.author_email}}"}
 ]
 readme = "README.md"
-package-mode = false
 requires-python = ">=3.12"
 dependencies = [
     "pandas (>=2.2.3,<3.0.0)",
+{% if cookiecutter.use_tests == "Yes" -%}
+    "pytest (>=8.3.4,<9.0.0)",
+{% endif -%}
 {% if cookiecutter.project_type in ["ML_All", "ML_Scikit_Learn"] -%}
     "scikit-learn (>=1.6.1,<2.0.0)",
 {% endif -%}
@@ -17,7 +19,7 @@ dependencies = [
     "torch (>=2.6.0,<3.0.0)",
 {% endif -%}
 {% if cookiecutter.project_type in ["ML_All", "ML_Tensorflow"] -%}
-    "tensorflow (>=2.18.0,<3.0.0)"
+    "tensorflow (>=2.18.0,<3.0.0)",
 {% endif -%}
 {% if cookiecutter.database == "PostgreSQL" -%}
     "dbt-postgres (>=1.9.0,<2.0.0)"
@@ -28,6 +30,9 @@ dependencies = [
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+package-mode = false
 
 [tool.poetry.group.dev.dependencies]
 {% if cookiecutter.use_jupyter == "Yes" -%}

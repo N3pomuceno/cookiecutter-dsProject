@@ -17,5 +17,9 @@
         "PostgreSQL",
         "None"
     ],
+    "use_tests":[
+        "Yes",
+        "No"
+    ],
     "description":""
 }
