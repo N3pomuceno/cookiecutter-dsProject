@@ -66,11 +66,35 @@ git push origin main
 
 The project is structured to streamline data science workflows. Below is an overview of the main directories:
 
-- **data/**: Stores raw and processed datasets.
-- **notebooks/**: Contains Jupyter Notebooks.
-- **src/**: Source code for the project (inspired by an excellent [project](https://github.com/allmeidaapedro/Churn-Prediction-Credit-Card) by Pedro Almeida).
-- **outputs/**: Stores project outputs, such as charts and reports.
-- **models/** and **models_results/**: Model training files and results. It's recommended to document model explanations using this [standard](https://arxiv.org/pdf/1810.03993).
+```
+{{cookiecutter.project_name}}
+├── README.md                # Project overview and setup instructions
+├── data                     # Directory for dataset storage
+│   ├── processed            # Processed datasets
+│   ├── raw                  # Raw datasets
+│   └── summary.json         # Summary of data
+├── docker-compose.yml       # Configuration for containerized services
+├── documentation            # Project documentation and task tracking
+│   ├── documentation.md     # Project goals and guidelines
+│   └── todo.md              # Task tracking file
+├── logs                     # Directory for storing log files
+├── models                   # Directory for storing trained models
+├── models_results           # Model evaluation results and reports
+├── notebooks                # Jupyter notebooks for analysis
+│   ├── EDA_{{cookiecutter.project_name}}.ipynb  # Exploratory Data Analysis notebook
+│   └── Modelling_{{cookiecutter.project_name}}.ipynb  # Model training and evaluation notebook
+├── pyproject.toml           # Dependency management and project metadata
+├── sql                      # SQL-related files
+│   ├── queries              # SQL queries for data extraction and analysis
+│   └── schemas              # Database schema definitions
+├── src                      # Source code for the project
+│   ├── __init__.py          # Package initialization
+│   ├── eda_util.py          # Utility functions for EDA
+│   ├── exception.py         # Custom exception handling
+│   ├── logger.py            # Logging utility for debugging
+│   └── util.py              # General utility functions
+└── tests                    # Directory for unit and integration tests
+```
 
 ## Documentation and Planning
 
