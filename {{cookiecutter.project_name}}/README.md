@@ -68,7 +68,7 @@ The project is structured to streamline data science workflows. Below is an over
 
 - **data/**: Stores raw and processed datasets.
 - **notebooks/**: Contains Jupyter Notebooks.
-- **src/**: Source code for the project.
+- **src/**: Source code for the project (inspired by an excellent [project](https://github.com/allmeidaapedro/Churn-Prediction-Credit-Card) by Pedro Almeida).
 - **outputs/**: Stores project outputs, such as charts and reports.
 - **models/** and **models_results/**: Model training files and results. It's recommended to document model explanations using this [standard](https://arxiv.org/pdf/1810.03993).
 
