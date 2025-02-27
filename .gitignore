@@ -2,3 +2,4 @@
 venv/
 
 .vscode/
+!{{cookiecutter.project_name}}/.vscode/
