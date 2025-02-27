@@ -55,11 +55,17 @@ def setup_logger(log_dir="logs", log_filename=None, level="INFO"):
 
 
 # Example Usage:
-# from logger_config import setup_logger
+# from logger import setup_logger
 
 # logger = setup_logger(log_dir="logs", log_filename="my_log", level="DEBUG")
 
-# logger.info("Logging system initialized successfully!")
-# logger.error("An error occurred!")
-# logger.warning("A warning message!")
-# logger.debug("Debugging message!")
+
+# def main():
+#     logger.info("Logging system initialized successfully!")
+#     logger.error("An error occurred!")
+#     logger.warning("A warning message!")
+#     logger.debug("Debugging message!")
+
+
+# if __name__ == "__main__":
+#     main()
