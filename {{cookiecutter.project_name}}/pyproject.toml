@@ -22,7 +22,8 @@ dependencies = [
     "tensorflow (>=2.18.0,<3.0.0)",
 {% endif -%}
 {% if cookiecutter.database == "PostgreSQL" -%}
-    "dbt-postgres (>=1.9.0,<2.0.0)"
+    "dbt-postgres (>=1.9.0,<2.0.0)",
+    "sqlalchemy (>=2.0.38,<3.0.0)"
 {% endif -%}
 ]
 

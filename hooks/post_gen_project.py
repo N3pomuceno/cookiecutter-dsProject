@@ -13,9 +13,9 @@ def create_gitignore():
     """
     Creates the .gitignore file from a template and removes the template file.
     """
-    logger.info('Creating .gitignore file...')
-    shutil.copy('.gitignore_project', '.gitignore')
-    template_path = os.path.join(PROJECT_DIRECTORY, '.gitignore_project')
+    logger.info("Creating .gitignore file...")
+    shutil.copy(".gitignore_project", ".gitignore")
+    template_path = os.path.join(PROJECT_DIRECTORY, ".gitignore_project")
     if os.path.exists(template_path):
         os.remove(template_path)
 
@@ -28,42 +28,42 @@ def remove_extra_files(project_type, use_jupyter, database, tests):
     :param use_jupyter: Whether Jupyter notebooks are used ("Yes" or "No").
     :param database: The selected database option.
     """
-    logger.info('Removing extra files...')
+    logger.info("Removing extra files...")
 
     # Remove Jupyter notebooks if not used
     if use_jupyter == "No":
-        shutil.rmtree('./notebooks', ignore_errors=True)
+        shutil.rmtree("./notebooks", ignore_errors=True)
 
     # Remove modeling files and directories if project is EDA
     if project_type == "EDA":
-        files = ['Modelling_{{cookiecutter.project_name}}.ipynb']
+        files = ["Modelling_{{cookiecutter.project_name}}.ipynb"]
         if use_jupyter != "No":
             filepath = os.path.join(PROJECT_DIRECTORY, files[0])
             if os.path.exists(filepath):
                 os.remove(filepath)
-        shutil.rmtree('./models', ignore_errors=True)
-        shutil.rmtree('./models_results', ignore_errors=True)
+        shutil.rmtree("./models", ignore_errors=True)
+        shutil.rmtree("./models_results", ignore_errors=True)
 
     # Remove database-related files if no database is selected
     if database == "None":
-        files = ['docker-compose.yml', '.database_env']
+        files = ["docker-compose.yml", ".database_env", ".env"]
         for file in files:
             filepath = os.path.join(PROJECT_DIRECTORY, file)
             if os.path.exists(filepath):
                 os.remove(filepath)
-        shutil.rmtree('./sql', ignore_errors=True)
+        shutil.rmtree("./sql", ignore_errors=True)
 
     # Remove tests if not used
     if tests == "No":
-        shutil.rmtree('./tests', ignore_errors=True)
-    logger.info('Extra files successfully removed!')
+        shutil.rmtree("./tests", ignore_errors=True)
+    logger.info("Extra files successfully removed!")
 
 
 def main():
     """
     Main function to execute post-processing steps after project creation.
     """
-    logger.info('Starting post-processing...')
+    logger.info("Starting post-processing...")
 
     project_type = "{{cookiecutter.project_type}}"
     use_jupyter = "{{cookiecutter.use_jupyter}}"
@@ -73,9 +73,11 @@ def main():
     create_gitignore()
     remove_extra_files(project_type, use_jupyter, database, tests)
 
-    logger.info('Post-processing completed!')
-    logger.info('Remember to create a virtual environment and install the project dependencies. 😉')
+    logger.info("Post-processing completed!")
+    logger.info(
+        "Remember to create a virtual environment and install the project dependencies. 😉"
+    )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
