@@ -47,6 +47,7 @@ def setup_logger(log_dir="logs", log_filename=None, level="INFO"):
         format="[ %(asctime)s ] %(lineno)d %(filename)s - %(levelname)s - %(message)s",
         level=logging_level,
         filemode="a",
+        force=True,  # To deal with handlers problems.
     )
 
     # Create a logger instance
