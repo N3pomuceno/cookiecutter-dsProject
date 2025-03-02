@@ -11,6 +11,7 @@ import json
 import os
 import pickle
 import datetime
+import sys
 
 
 def read_json_to_dict(file_path: str) -> Dict:
@@ -85,3 +86,14 @@ def load_model_from_pkl(filename: str, directory_path: str = './models/') -> obj
     file_path = os.path.join(directory_path, filename)
     with open(file_path, 'rb') as file:
         return pickle.load(file)
+
+
+def get_args(error_message: str = "Missing arguments in CLI.") -> str:
+    """
+    Get the arguments from the command line.
+    """
+    args = sys.argv
+    if len(args) < 2:
+        print(error_message)
+        sys.exit(1)
+    return args
