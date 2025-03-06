@@ -73,27 +73,37 @@ The project is structured to streamline data science workflows. Below is an over
 │   ├── processed            # Processed datasets
 │   ├── raw                  # Raw datasets
 │   └── summary.json         # Summary of data
+{% if cookiecutter.database != "None" -%}
 ├── docker-compose.yml       # Configuration for containerized services
+{% endif -%}
 ├── documentation            # Project documentation and task tracking
 │   ├── documentation.md     # Project goals and guidelines
 │   └── todo.md              # Task tracking file
 ├── logs                     # Directory for storing log files
+{% if cookiecutter.project_type != "EDA" -%}
 ├── models                   # Directory for storing trained models
 ├── models_results           # Model evaluation results and reports
+{% endif -%}
+{% if cookiecutter.use_jupyter == "Yes" -%}
 ├── notebooks                # Jupyter notebooks for analysis
 │   ├── EDA_{{cookiecutter.project_name}}.ipynb  # Exploratory Data Analysis notebook
 │   └── Modelling_{{cookiecutter.project_name}}.ipynb  # Model training and evaluation notebook
+{% endif -%}
 ├── pyproject.toml           # Dependency management and project metadata
+{% if cookiecutter.database != "None" -%}
 ├── sql                      # SQL-related files
 │   ├── queries              # SQL queries for data extraction and analysis
 │   └── schemas              # Database schema definitions
+{% endif -%}
 ├── src                      # Source code for the project
 │   ├── __init__.py          # Package initialization
 │   ├── eda_util.py          # Utility functions for EDA
 │   ├── exception.py         # Custom exception handling
 │   ├── logger.py            # Logging utility for debugging
 │   └── util.py              # General utility functions
+{% if cookiecutter.use_tests == "Yes" -%}
 └── tests                    # Directory for unit and integration tests
+{% endif -%}
 ```
 
 
