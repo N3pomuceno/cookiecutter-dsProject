@@ -1,17 +1,8 @@
 [project]
-name = "cookiecutter-dsproject"
+name = "cookiecutter-data-science"
 version = "0.1.0"
 description = "Repositório dedicado a criar formatos padronizados de projetos de Data Science"
-authors = [
-    {name = "User",email = "User@email.com"}
-]
 readme = "README.md"
-requires-python = ">=3.12"
 dependencies = [
-    "cookiecutter (>=2.6.0,<3.0.0)"
+    "cookiecutter>=2.6.0",
 ]
-
-
-[build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
-build-backend = "poetry.core.masonry.api"

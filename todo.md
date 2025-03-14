@@ -2,7 +2,14 @@
 
 Possible future plans for this project:
 
-- [x] Update to poetry 2.0.1  
+- [ ] Re do it with [UV](https://docs.astral.sh/uv/reference/cli/#uv) dependency manager and also [Ruff](https://docs.astral.sh/ruff/) python linter.
+    - [x] pyproject.toml - alter to uv.toml
+    - [ ] Alter a pyproject inside the repository.
+    - [x] poetry.lock can go away
+    - [ ] README.md edit with new manager.
+    - [ ] Add new ruff.toml or just change .vscode/settings.json  
+    - [ ] How to install directly, like poetry install.
+    - [ ] It create a .venv!
 
 - [ ] Add a way to create a repository directly, which will probably require some pre-configured key on the machine. However, I believe it is feasible to link directly with GitHub/GitLab.  
 
