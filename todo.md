@@ -4,12 +4,12 @@ Possible future plans for this project:
 
 - [ ] Re do it with [UV](https://docs.astral.sh/uv/reference/cli/#uv) dependency manager and also [Ruff](https://docs.astral.sh/ruff/) python linter.
     - [x] pyproject.toml - alter to uv.toml
-    - [ ] Alter a pyproject inside the repository.
+    - [x] Alter a pyproject inside the repository.
     - [x] poetry.lock can go away
     - [ ] README.md edit with new manager.
-    - [ ] Add new ruff.toml or just change .vscode/settings.json  
-    - [ ] How to install directly, like poetry install.
-    - [ ] It create a .venv!
+    - [x] Add new ruff.toml or just change .vscode/settings.json  
+    - [ ] How to install directly, like poetry install. -> Uv sync, but not needed because uv run assert all dependencies are in sync. -> Document this in README.md
+    - [x] It create a .venv!
 
 - [ ] Add a way to create a repository directly, which will probably require some pre-configured key on the machine. However, I believe it is feasible to link directly with GitHub/GitLab.  
 

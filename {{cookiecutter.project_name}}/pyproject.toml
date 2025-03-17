@@ -1,43 +1,35 @@
 [project]
-name = "{{cookiecutter.project_name}}"
+name = {{cookiecutter.project_name}}
 version = "0.1.0"
-description = "{{cookiecutter.description}}"
-authors = [
-    {name = "{{cookiecutter.project_author}}",email = "{{cookiecutter.author_email}}"}
-]
+description = "Repositório dedicado a criar formatos padronizados de projetos de Data Science"
 readme = "README.md"
+[project]
+name = "teste"
+version = "0.1.0"
 requires-python = ">=3.12"
 dependencies = [
-    "pandas (>=2.2.3,<3.0.0)",
+{% if cookiecutter.database == "PostgreSQL" -%}
+    "dbt-postgres>=1.9.0",
+{% endif -%}
+{% if cookiecutter.use_jupyter == "Yes" -%}
+    "jupyter>=1.1.1",
+{% endif -%}
+    "matplotlib>=3.10.1",
+    "pandas>=2.2.3",
 {% if cookiecutter.use_tests == "Yes" -%}
-    "pytest (>=8.3.4,<9.0.0)",
+    "pytest>=8.3.5",
 {% endif -%}
 {% if cookiecutter.project_type in ["ML_All", "ML_Scikit_Learn"] -%}
-    "scikit-learn (>=1.6.1,<2.0.0)",
+    "scikit-learn>=1.6.1",
 {% endif -%}
-{% if cookiecutter.project_type in ["ML_All", "ML_Pytorch"] -%}
-    "torch (>=2.6.0,<3.0.0)",
+    "seaborn>=0.13.2",
+{% if cookiecutter.database != "None" -%}
+    "sqlalchemy>=2.0.39",
 {% endif -%}
 {% if cookiecutter.project_type in ["ML_All", "ML_Tensorflow"] -%}
-    "tensorflow (>=2.18.0,<3.0.0)",
+    "tensorflow>=2.19.0",
 {% endif -%}
-{% if cookiecutter.database == "PostgreSQL" -%}
-    "dbt-postgres (>=1.9.0,<2.0.0)",
-    "sqlalchemy (>=2.0.38,<3.0.0)"
+{% if cookiecutter.project_type in ["ML_All", "ML_Pytorch"] -%}
+    "torch>=2.6.0",
 {% endif -%}
 ]
-
-
-[build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
-build-backend = "poetry.core.masonry.api"
-
-[tool.poetry]
-package-mode = false
-
-[tool.poetry.group.dev.dependencies]
-{% if cookiecutter.use_jupyter == "Yes" -%}
-jupyter = "^1.1.1"
-{% endif -%}
-seaborn = "^0.13.2"
-matplotlib = "^3.10.0"
