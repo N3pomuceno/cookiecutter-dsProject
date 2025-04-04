@@ -1,36 +1,51 @@
-'''
-This script aims to provide functions that will turn the exploratory data analysis (EDA) process easier. 
-'''
-
-
-'''
+"""
 Importing libraries
-'''
+"""
 
 # Data manipulation and visualization.
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
-
-# Debugging.
-from src.exception import CustomException
 import sys
 
 # Warnings.
 from warnings import filterwarnings
-filterwarnings('ignore')
 
-palette = sns.color_palette(['#023047', '#e85d04', '#0077b6', '#ff8200', '#0096c7', '#ff9c33'])
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+
+# Debugging.
+from src.exception import CustomException
+
+"""
+This script aims to provide functions that will turn the exploratory data analysis (EDA) process easier.
+"""
+filterwarnings("ignore")
+
+palette = sns.color_palette(
+    ["#023047", "#e85d04", "#0077b6", "#ff8200", "#0096c7", "#ff9c33"]
+)
 
 
-def analysis_plots(data, features, histplot=True, barplot=False, mean=None, text_y=0.5,
-                   outliers=False, boxplot=False, boxplot_x=None, kde=False, hue=None,
-                   nominal=False, color='#023047', figsize=(24, 12)):
-    '''
+def analysis_plots(
+    data,
+    features,
+    histplot=True,
+    barplot=False,
+    mean=None,
+    text_y=0.5,
+    outliers=False,
+    boxplot=False,
+    boxplot_x=None,
+    kde=False,
+    hue=None,
+    nominal=False,
+    color="#023047",
+    figsize=(24, 12),
+):
+    """
     Generate plots for univariate and bivariate analysis.
 
-    This function generates histograms, horizontal bar plots 
-    and boxplots based on the provided data and features. 
+    This function generates histograms, horizontal bar plots
+    and boxplots based on the provided data and features.
 
     Args:
         data (DataFrame): The DataFrame containing the data to be visualized.
@@ -53,7 +68,7 @@ def analysis_plots(data, features, histplot=True, barplot=False, mean=None, text
     Raises:
         CustomException: If an error occurs during the plot generation.
 
-    '''
+    """
 
     try:
         # Get num_features and num_rows and iterating over the sublot dimensions.
@@ -72,33 +87,65 @@ def analysis_plots(data, features, histplot=True, barplot=False, mean=None, text
                 if mean:
                     data_grouped = data.groupby([feature])[[mean]].mean().reset_index()
                     data_grouped[mean] = round(data_grouped[mean], 2)
-                    ax.barh(y=data_grouped[feature], width=data_grouped[mean], color=color)
+                    ax.barh(
+                        y=data_grouped[feature], width=data_grouped[mean], color=color
+                    )
                     for index, value in enumerate(data_grouped[mean]):
                         # Adjust the text position based on the width of the bars
-                        ax.text(value + text_y, index, f'{value:.1f}', va='center', fontsize=15)
+                        ax.text(
+                            value + text_y,
+                            index,
+                            f"{value:.1f}",
+                            va="center",
+                            fontsize=15,
+                        )
                 else:
                     if hue:
-                        data_grouped = data.groupby([feature])[[hue]].mean().reset_index().rename(columns={hue: 'pct'})
-                        data_grouped['pct'] *= 100
+                        data_grouped = (
+                            data.groupby([feature])[[hue]]
+                            .mean()
+                            .reset_index()
+                            .rename(columns={hue: "pct"})
+                        )
+                        data_grouped["pct"] *= 100
                     else:
-                        data_grouped = data.groupby([feature])[[feature]].count().rename(columns={feature: 'count'}).reset_index()
-                        data_grouped['pct'] = data_grouped['count'] / data_grouped['count'].sum() * 100
+                        data_grouped = (
+                            data.groupby([feature])[[feature]]
+                            .count()
+                            .rename(columns={feature: "count"})
+                            .reset_index()
+                        )
+                        data_grouped["pct"] = (
+                            data_grouped["count"] / data_grouped["count"].sum() * 100
+                        )
 
-                    ax.barh(y=data_grouped[feature], width=data_grouped['pct'], color=color)
+                    ax.barh(
+                        y=data_grouped[feature], width=data_grouped["pct"], color=color
+                    )
 
                     if pd.api.types.is_numeric_dtype(data_grouped[feature]):
                         ax.invert_yaxis()
 
-                    for index, value in enumerate(data_grouped['pct']):
+                    for index, value in enumerate(data_grouped["pct"]):
                         # Adjust the text position based on the width of the bars
-                        ax.text(value + text_y, index, f'{value:.1f}%', va='center', fontsize=15)
+                        ax.text(
+                            value + text_y,
+                            index,
+                            f"{value:.1f}%",
+                            va="center",
+                            fontsize=15,
+                        )
 
-                ax.set_yticks(ticks=range(data_grouped[feature].nunique()), labels=data_grouped[feature].tolist(), fontsize=15)
+                ax.set_yticks(
+                    ticks=range(data_grouped[feature].nunique()),
+                    labels=data_grouped[feature].tolist(),
+                    fontsize=15,
+                )
                 ax.get_xaxis().set_visible(False)
-                ax.spines['top'].set_visible(False)
-                ax.spines['right'].set_visible(False)
-                ax.spines['bottom'].set_visible(False)
-                ax.spines['left'].set_visible(False)
+                ax.spines["top"].set_visible(False)
+                ax.spines["right"].set_visible(False)
+                ax.spines["bottom"].set_visible(False)
+                ax.spines["left"].set_visible(False)
                 ax.grid(False)
 
             elif outliers:
@@ -107,14 +154,29 @@ def analysis_plots(data, features, histplot=True, barplot=False, mean=None, text
 
             elif boxplot:
                 # Plot multivariate boxplot.
-                sns.boxplot(data=data, x=boxplot_x, y=feature, showfliers=outliers, ax=ax, palette=palette)
+                sns.boxplot(
+                    data=data,
+                    x=boxplot_x,
+                    y=feature,
+                    showfliers=outliers,
+                    ax=ax,
+                    palette=palette,
+                )
 
             else:
                 # Plot histplot.
-                sns.histplot(data=data, x=feature, kde=kde, ax=ax, color=color, stat='proportion', hue=hue)
+                sns.histplot(
+                    data=data,
+                    x=feature,
+                    kde=kde,
+                    ax=ax,
+                    color=color,
+                    stat="proportion",
+                    hue=hue,
+                )
 
             ax.set_title(feature)
-            ax.set_xlabel('')
+            ax.set_xlabel("")
 
         # Remove unused axes.
         if num_features < len(axes.flat):
@@ -128,7 +190,7 @@ def analysis_plots(data, features, histplot=True, barplot=False, mean=None, text
 
 
 def check_outliers(data, features):
-    '''
+    """
     Check for outliers in the given dataset features.
 
     This function calculates and identifies outliers in the specified features
@@ -147,10 +209,9 @@ def check_outliers(data, features):
     Raises:
         CustomException: If an error occurs while checking for outliers.
 
-    '''
+    """
 
     try:
-
         outlier_counts = {}
         outlier_indexes = {}
         total_outliers = 0
@@ -164,18 +225,20 @@ def check_outliers(data, features):
             lower_bound = Q1 - 1.5 * IQR
             upper_bound = Q3 + 1.5 * IQR
 
-            feature_outliers = data[(data[feature] < lower_bound) | (data[feature] > upper_bound)]
+            feature_outliers = data[
+                (data[feature] < lower_bound) | (data[feature] > upper_bound)
+            ]
             outlier_indexes[feature] = feature_outliers.index.tolist()
             outlier_count = len(feature_outliers)
             outlier_counts[feature] = outlier_count
             total_outliers += outlier_count
 
-        print(f'There are {total_outliers} outliers in the dataset.')
+        print(f"There are {total_outliers} outliers in the dataset.")
         print()
-        print('Number (percentage) of outliers per feature: ')
+        print("Number (percentage) of outliers per feature: ")
         print()
         for feature, count in outlier_counts.items():
-            print(f'{feature}: {count} ({round(count / len(data) * 100, 2)})%')
+            print(f"{feature}: {count} ({round(count / len(data) * 100, 2)})%")
 
         return outlier_indexes, outlier_counts, total_outliers
 

@@ -1,17 +1,15 @@
+"""Importing the libraries."""
+
+import logging
+import os
+from datetime import datetime
+
 """
 This script aims to define a logger with a standard logging message configuration.
 Logging messages are employed to track application behavior, errors, and events.
 They facilitate debugging, provide insight into program flow, and aid in monitoring and diagnosing issues.
 Logging enhances code quality, troubleshooting, and maintenance.
 """
-
-"""
-Importing the libraries.
-"""
-
-import logging
-import os
-from datetime import datetime
 
 
 def setup_logger(log_dir="logs", log_filename=None, level="INFO"):

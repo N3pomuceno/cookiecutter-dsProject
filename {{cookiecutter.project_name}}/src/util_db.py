@@ -1,8 +1,9 @@
 import os
 from pathlib import Path
 from typing import Dict, List
-from dotenv import load_dotenv
+
 import pandas as pd
+from dotenv import load_dotenv
 from sqlalchemy import create_engine
 
 
@@ -45,7 +46,9 @@ def send_csv_to_db(filepath: Path, table_name: str) -> None:
     df.to_sql(table_name, conn, if_exists="replace", index=False)
 
 
-def send_xlsx_to_db(filepath: Path, table_name: Dict[str:str], sheets: List[str]) -> None:
+def send_xlsx_to_db(
+    filepath: Path, table_name: Dict[str:str], sheets: List[str]
+) -> None:
     """
     Sends an Excel file to a database table.
 

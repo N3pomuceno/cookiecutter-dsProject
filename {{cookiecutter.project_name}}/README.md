@@ -10,19 +10,14 @@ Follow these steps to create the virtual environment, activate it, and install t
 
 ```bash
 # Create the virtual environment:
-poetry install
+uv sync
 
-# If you don't have the poetry plugin installed, run:
-poetry self add poetry-plugin-shell
 
 # Enter the project's virtual environment:
-poetry shell
+.venv/scripts/activate
 
 # Start Jupyter Notebook or JupyterLab (if preferred):
 jupyter notebook # or jupyter lab
-
-# Alternatively, run it directly with poetry:
-poetry run jupyter lab
 ```
 
 {% if cookiecutter.database == "PostgreSQL" -%}

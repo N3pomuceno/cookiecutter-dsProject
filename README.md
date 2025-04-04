@@ -8,29 +8,23 @@ The purpose of this project is to establish the skeleton of a data science proje
 
 ## Setting Up the Virtual Environment for Cookiecutter  
 
-Assuming the repository has been cloned and you are inside the Cookiecutter directory, using **Poetry (version 2.0)**, you can install the dependencies with the following command:  
+Assuming the repository has been cloned and you are inside the Cookiecutter directory, using **uv**, dependency manager, you can install the dependencies with the following command:  
 
 ### 1. **Creating and Installing a Virtual Environment (venv)**  
 
 To create the virtual environment, run:  
 
 ```bash
-poetry install
+uv sync
 ```  
 
 ### 2. **Running Cookiecutter**  
 
-To run Cookiecutter, ensure you have the **Poetry plugin** for activating the virtual environment installed. If not, install it with:  
+To run Cookiecutter, ensure you have to activate the virtual environment.
 
 ```bash
-poetry self add poetry-plugin-shell
-```  
-
-Then, enter the virtual environment:  
-
-```bash
-poetry shell
-```  
+.venv/scripts/activate
+```
 
 With the virtual environment activated, you can now generate the project structure using Cookiecutter. First, go back to the parent directory and run the command:  
 
@@ -54,12 +48,12 @@ Now that the project has been created, navigate to the new project directory and
 ```bash
 cd new_project_name
 
-poetry install
+uv sync
 
-poetry shell
+.venv/scripts/activate
 
-# Alternatively, you can work directly with poetry run
-poetry run ...
+# Alternatively, you can work directly with uv run
+uv run ...
 ```  
 
 ## Explanation of Variables  

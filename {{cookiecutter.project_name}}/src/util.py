@@ -1,17 +1,15 @@
-'''
-This script aims to provide functions that will turn modelling process easier.
-'''
+"""Importing libraries"""
 
-'''
-Importing libraries
-'''
-
-from typing import Dict
+import datetime
 import json
 import os
 import pickle
-import datetime
 import sys
+from typing import Dict
+
+"""
+This script aims to provide functions that will turn modelling process easier.
+"""
 
 
 def read_json_to_dict(file_path: str) -> Dict:
@@ -24,7 +22,7 @@ def read_json_to_dict(file_path: str) -> Dict:
     Returns:
         dict: The content of the JSON file as a dictionary.
     """
-    with open(file_path, 'r', encoding='utf-8') as json_file:
+    with open(file_path, "r", encoding="utf-8") as json_file:
         return json.load(json_file)
 
 
@@ -38,11 +36,13 @@ def write_dict_to_json(data: Dict, file_path: str) -> None:
     """
     ensure_directory_exists(os.path.dirname(file_path))  # Ensures the directory exists
 
-    with open(file_path, 'w', encoding='utf-8') as json_file:
+    with open(file_path, "w", encoding="utf-8") as json_file:
         json.dump(data, json_file, ensure_ascii=False, indent=4)
 
 
-def ensure_directory_exists(directory_path: str, create_if_missing: bool = True) -> None:
+def ensure_directory_exists(
+    directory_path: str, create_if_missing: bool = True
+) -> None:
     """
     Checks if the specified directory exists. If not, creates it, based on the `create_if_missing` flag.
 
@@ -54,7 +54,9 @@ def ensure_directory_exists(directory_path: str, create_if_missing: bool = True)
         os.makedirs(directory_path, exist_ok=True)
 
 
-def save_model_as_pkl(model: object, filename: str, directory_path: str = './models/') -> None:
+def save_model_as_pkl(
+    model: object, filename: str, directory_path: str = "./models/"
+) -> None:
     """
     Saves the provided model as a .pkl file in the specified directory.
 
@@ -64,15 +66,15 @@ def save_model_as_pkl(model: object, filename: str, directory_path: str = './mod
         directory_path (str, optional): The directory where the model will be saved. Defaults to './models/'.
     """
     suffix = datetime.datetime.today().strftime("_%d%m%y")
-    full_filename = f'{filename}{suffix}.pkl'
+    full_filename = f"{filename}{suffix}.pkl"
     ensure_directory_exists(directory_path)
 
     file_path = os.path.join(directory_path, full_filename)
-    with open(file_path, 'wb') as file:
+    with open(file_path, "wb") as file:
         pickle.dump(model, file)
 
 
-def load_model_from_pkl(filename: str, directory_path: str = './models/') -> object:
+def load_model_from_pkl(filename: str, directory_path: str = "./models/") -> object:
     """
     Loads a model from a .pkl file.
 
@@ -84,7 +86,7 @@ def load_model_from_pkl(filename: str, directory_path: str = './models/') -> obj
         object: The loaded model.
     """
     file_path = os.path.join(directory_path, filename)
-    with open(file_path, 'rb') as file:
+    with open(file_path, "rb") as file:
         return pickle.load(file)
 
 

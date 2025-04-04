@@ -1,6 +1,6 @@
-import shutil
-import os
 import logging
+import os
+import shutil
 
 # Path to the generated project root
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
@@ -74,9 +74,7 @@ def main():
     remove_extra_files(project_type, use_jupyter, database, tests)
 
     logger.info("Post-processing completed!")
-    logger.info(
-        "Remember to create a virtual environment and install the project dependencies. 😉"
-    )
+    logger.info("Remember to create a virtual environment and install the project dependencies. 😉")
 
 
 if __name__ == "__main__":
