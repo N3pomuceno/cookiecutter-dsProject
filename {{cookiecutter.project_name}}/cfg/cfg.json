@@ -1,0 +1,7 @@
+{
+    "random_seed": 42,
+    "data": {
+        "raw_path": "data/raw/data.csv",
+        "processed_path": "data/processed/final.csv"
+    }
+}

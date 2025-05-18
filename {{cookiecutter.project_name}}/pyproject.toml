@@ -19,17 +19,17 @@ dependencies = [
 {% if cookiecutter.use_tests == "Yes" -%}
     "pytest>=8.3.5",
 {% endif -%}
-{% if cookiecutter.project_type in ["ML_All", "ML_Scikit_Learn"] -%}
+{% if cookiecutter.project_type == "ML_Scikit_Learn" -%}
     "scikit-learn>=1.6.1",
 {% endif -%}
     "seaborn>=0.13.2",
 {% if cookiecutter.database != "None" -%}
     "sqlalchemy>=2.0.39",
 {% endif -%}
-{% if cookiecutter.project_type in ["ML_All", "ML_Tensorflow"] -%}
+{% if cookiecutter.project_type == "ML_Tensorflow" -%}
     "tensorflow>=2.19.0",
 {% endif -%}
-{% if cookiecutter.project_type in ["ML_All", "ML_Pytorch"] -%}
+{% if cookiecutter.project_type == "ML_Pytorch" -%}
     "torch>=2.6.0",
 {% endif -%}
 ]

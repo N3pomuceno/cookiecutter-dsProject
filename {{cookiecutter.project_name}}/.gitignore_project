@@ -1,5 +1,6 @@
 # Outputs
 data/*
+models/*
 logs/*
 
 # Settings

@@ -1,8 +1,6 @@
 """Importing the libraries."""
 
 import logging
-import os
-from datetime import datetime
 
 """
 This script aims to define a logger with a standard logging message configuration.
@@ -12,7 +10,7 @@ Logging enhances code quality, troubleshooting, and maintenance.
 """
 
 
-def setup_logger(log_dir="logs", log_filename=None, level="INFO"):
+def setup_logger(level="INFO"):
     """Configures the logging system."""
 
     if level == "INFO":
@@ -24,28 +22,10 @@ def setup_logger(log_dir="logs", log_filename=None, level="INFO"):
     elif level == "ERROR":
         logging_level = logging.ERROR
 
-    # Create the logs directory if it doesn't exist
-    logs_dir = os.path.join(os.getcwd(), log_dir)
-    os.makedirs(logs_dir, exist_ok=True)
-
-    # Generate a log filename with date and time if none is provided
-    if log_filename is None:
-        log_filename = f"app_{datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.log"
-    else:
-        log_filename = (
-            f"{log_filename}_{datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.log"
-        )
-
-    # Define the full log file path
-    log_file_path = os.path.join(logs_dir, log_filename)
-
     # Configure logging settings
     logging.basicConfig(
-        filename=log_file_path,
         format="[ %(asctime)s ] %(lineno)d %(filename)s - %(levelname)s - %(message)s",
         level=logging_level,
-        filemode="a",
-        force=True,  # To deal with handlers problems.
     )
 
     # Create a logger instance
@@ -56,8 +36,7 @@ def setup_logger(log_dir="logs", log_filename=None, level="INFO"):
 # Example Usage:
 # from logger import setup_logger
 
-# logger = setup_logger(log_dir="logs", log_filename="my_log", level="DEBUG")
-
+# logger = setup_logger(level="DEBUG")
 
 # def main():
 #     logger.info("Logging system initialized successfully!")

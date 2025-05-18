@@ -6,8 +6,7 @@
         "EDA",
         "ML_Scikit_Learn",
         "ML_Pytorch",
-        "ML_TensorFlow",
-        "ML_All"
+        "ML_TensorFlow"
     ],
     "use_jupyter": [
         "Yes",
