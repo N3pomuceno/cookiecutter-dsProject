@@ -1,7 +1,3 @@
-Here’s your translated and improved README with proper formatting, corrections, and better flow for an international audience:  
-
----
-
 # Cookiecutter - Data Science Project  
 
 The purpose of this project is to establish the skeleton of a data science project, with pre-configured notebooks, organized data directories, and predefined dependencies. The project can also include a virtual environment to facilitate running notebooks without needing to install packages on the local system.  
