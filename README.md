@@ -90,3 +90,9 @@ When creating a project with Cookiecutter, you can define several variables that
 | `use_tests`      | `Yes` or `No`. Includes a basic tests/ folder and setup.                    |
 | `use_ingestion`  | `Yes` or `No`. Includes scripts and structure for automated data ingestion. |
 | `description`    | Short description of the project (included in README).                      |
+
+
+---
+
+
+I can't emphasize enough the impact of [Pedro Almeida](https://github.com/allmeidaapedro)'s work, which greatly influenced the structure of the `src/util` folder through his [project](https://github.com/allmeidaapedro/Churn-Prediction-Credit-Card). Additionally, the idea of documenting model results follows an established [standard](https://arxiv.org/pdf/1810.03993), which particularly caught my attention.  

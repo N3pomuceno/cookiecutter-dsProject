@@ -127,15 +127,13 @@ The project is structured to streamline data science workflows. Below is an over
 ```
 
 
-I can't emphasize enough the impact of [Pedro Almeida](https://github.com/allmeidaapedro)'s work, which greatly influenced the structure of the `util` folder through his [project](https://github.com/allmeidaapedro/Churn-Prediction-Credit-Card). Additionally, the idea of documenting model results follows an established [standard](https://arxiv.org/pdf/1810.03993), which particularly caught my attention.  
-
-
 ## Documentation and Planning
 
 To ensure proper alignment between team members and maintain clarity throughout the development process, this repository includes two key markdown files within the `docs/` folder:
 
 * **documentation.md**: Contains the overall goals, project scope, modeling strategy, and development guidelines. It serves as the reference document for decisions, assumptions, and rationale behind the project's structure.
 * **todo.md**: Tracks completed, ongoing, and upcoming tasks.
+* **/models_results**: The idea of documenting model results follows an established [standard](https://arxiv.org/pdf/1810.03993).  
 
 ### Transition from Notebook to Pipeline
 
