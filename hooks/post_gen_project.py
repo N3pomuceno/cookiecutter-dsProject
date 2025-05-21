@@ -20,7 +20,7 @@ def create_gitignore():
         os.remove(template_path)
 
 
-def remove_extra_files(project_type, use_jupyter, database, tests):
+def remove_extra_files(project_type, use_jupyter, database, tests, ingestion):
     """
     Removes unnecessary files based on project settings.
 
@@ -30,9 +30,22 @@ def remove_extra_files(project_type, use_jupyter, database, tests):
     """
     logger.info("Removing extra files...")
 
+    # Remove ingestion files if not used
+    if ingestion == "No":
+        files = [
+            "cmd/ingest_data.py",
+            "cmd/ingest_data.sh",
+            "notebooks/ingest_{{cookiecutter.project_name}}.ipynb",
+        ]
+        for file in files:
+            filepath = os.path.join(PROJECT_DIRECTORY, file)
+            if os.path.exists(filepath):
+                os.remove(filepath)
+
     # Remove Jupyter notebooks if not used
     if use_jupyter == "No":
         shutil.rmtree("./notebooks", ignore_errors=True)
+        logger.info("Removed notebooks directory.")
 
     # Remove modeling files and directories if project is EDA
     if project_type == "EDA":
@@ -43,6 +56,7 @@ def remove_extra_files(project_type, use_jupyter, database, tests):
                 os.remove(filepath)
         shutil.rmtree("./models", ignore_errors=True)
         shutil.rmtree("./models_results", ignore_errors=True)
+        shutil.rmtree("./cmd", ignore_errors=True)
 
     # Remove database-related files if no database is selected
     if database == "None":
@@ -69,12 +83,15 @@ def main():
     use_jupyter = "{{cookiecutter.use_jupyter}}"
     database = "{{cookiecutter.database}}"
     tests = "{{cookiecutter.use_tests}}"
+    ingestion = "{{cookiecutter.use_data_ingestion}}"
 
     create_gitignore()
-    remove_extra_files(project_type, use_jupyter, database, tests)
+    remove_extra_files(project_type, use_jupyter, database, tests, ingestion)
 
     logger.info("Post-processing completed!")
-    logger.info("Remember to create a virtual environment and install the project dependencies. 😉")
+    logger.info(
+        "Remember to create a virtual environment and install the project dependencies. 😉"
+    )
 
 
 if __name__ == "__main__":

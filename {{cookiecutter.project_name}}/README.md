@@ -62,56 +62,67 @@ git push origin main
 ## Project Structure
 
 The project is structured to streamline data science workflows. Below is an overview of the main directories:
-
 ```
 {{cookiecutter.project_name}}/
-├── README.md                   # Project overview and setup instructions
-├── .env                        # Environment variables
-├── .database_env               # Database-specific environment variables
+├── README.md                   # Project overview and usage instructions
+├── .env                        # General environment variables
 ├── .gitignore_project          # Git ignore rules
+{% if cookiecutter.database != "None" -%}
+├── .database_env               # Database-specific environment variables
 ├── docker-compose.yml          # Configuration for containerized services
+{% endif -%}
 ├── pyproject.toml              # Dependency management and project metadata
 
-├── cfg/                        # Configuration files for models and paths
-│   └── cfg.json                # Main configuration file for the project
+├── cfg/
+│   └── cfg.json                # Main project configuration file
 
-├── data/                       # Directory for dataset storage
-│   ├── raw/                    # Raw datasets
-│   ├── processed/              # Processed datasets
-│   └── summary.json            # Summary of data
+├── data/
+│   ├── raw/                    # Raw, unprocessed data
+│   ├── processed/              # Cleaned and transformed datasets
+│   └── summary.json            # Data summary and statistics
 
-├── documentation/              # Project documentation and task tracking
-│   ├── documentation.md        # Project goals and guidelines
-│   └── todo.md                 # Task tracking file
+├── docs/
+│   ├── documentation.md        # Project goals and detailed instructions
+│   └── todo.md                 # Task tracking and roadmap
 
-├── logs/                       # Directory for storing log files
+├── logs/                       # Logs generated during execution
 
 ├── models/                     # Trained machine learning models
-├── models_results/             # Model evaluation results and reports
-
-├── notebooks/                  # Jupyter notebooks for exploration and modeling
-│   ├── EDA_{{project_name}}.ipynb        # Exploratory Data Analysis notebook
-│   └── Modelling_{{project_name}}.ipynb  # Modeling and evaluation notebook
-
-├── sql/                        # SQL-related files
+├── models_results/             # Model evaluation metrics and reports
+{% if cookiecutter.use_jupyter == "Yes" -%}
+├── notebooks/
+│   ├── EDA_{{cookiecutter.project_name}}.ipynb         # Exploratory Data Analysis
+│   ├── Modelling_{{cookiecutter.project_name}}.ipynb   # Model training and evaluation
+│   └── ingest_{{cookiecutter.project_name}}.ipynb      # Data ingestion and preprocessing
+{% endif -%}
+├── sql/
 │   ├── queries/                # SQL queries for data extraction and analysis
 │   └── schemas/                # Database schema definitions
-
-├── src/                        # Source code for ML pipeline
-│   ├── exec.sh                 # Script to execute the full pipeline
-│   ├── feature_eng.py          # Feature engineering steps
-│   ├── train.py                # Model training logic
-│   └── predict.py              # Model prediction and evaluation logic
-
-├── util/                       # Utility functions and helpers
-│   ├── __init__.py             # Package initializer
-│   ├── db.py                   # Database interaction helpers
-│   ├── eda.py                  # EDA-related utilities
-│   ├── exception.py            # Custom exception classes
-│   ├── io.py                   # Input/output utility functions
-│   └── logger.py               # Logging configuration and helpers
+{% if cookiecutter.project_type == "EDA" -%}
+├── cmd/
+│   ├── __init__.py
+│   ├── exec-functions.sh      # Shell functions for modular execution
+│   ├── exec_all.sh            # Full pipeline execution script
+│   ├── ingest.sh              # Data ingestion execution (shell)
+│   ├── ingest_data.py         # Python-based data ingestion
+│   ├── predict.sh             # Prediction execution (shell)
+│   ├── predict_new_data.py    # Predicting outcomes on new data
+│   └── train.py               # Model training logic
+{% endif -%}
+├── src/
+│   ├── __init__.py
+│   ├── data/
+│   │   ├── db.py              # Database interaction helpers
+│   │   ├── ingest.py          # Data ingestion functions
+│   │   └── io.py              # Input/output utilities
+│   ├── features/
+│   │   └── build_features.py  # Feature engineering logic
+│   └── util/
+│       ├── eda.py             # Exploratory Data Analysis utilities
+│       ├── exception.py       # Custom exception classes
+│       └── logger.py          # Logging configuration
 {% if cookiecutter.use_tests == "Yes" -%}
-└── tests                    # Unit and integration tests
+└── tests/                      # Unit and integration tests
 {% endif -%}
 ```
 

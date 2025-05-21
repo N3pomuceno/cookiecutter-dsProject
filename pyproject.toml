@@ -6,4 +6,3 @@ readme = "README.md"
 dependencies = [
     "cookiecutter>=2.6.0",
 ]
-

@@ -16,6 +16,10 @@
         "PostgreSQL",
         "None"
     ],
+    "use_data_ingestion":[
+        "Yes",
+        "No"
+    ],
     "use_tests":[
         "Yes",
         "No"

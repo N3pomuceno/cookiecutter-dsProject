@@ -11,7 +11,13 @@ Possible future plans for this project:
     - [x] How to install directly, like poetry install. -> Uv sync, but not needed because uv run assert all dependencies are in sync. -> Document this in README.md
     - [x] It create a .venv!
 
-- [ ] In the `exec.sh`, ensure it activates venv to execute successfully!
+- [x] In the `exec.sh`, ensure it activates venv to execute successfully!
+
+- [x] Create option to ingest data, in a way where we can do a pre work in updating data with a script
+
+- [ ] New tests with:
+    - [ ] Using with/without ingestion;
+    - [ ] Using with/without project type EDA;
 
 - [ ] Add a way to create a repository directly, which will probably require some pre-configured key on the machine. However, I believe it is feasible to link directly with GitHub/GitLab.  
 
