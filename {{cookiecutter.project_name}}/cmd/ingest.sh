@@ -1,23 +1,24 @@
 #!/bin/bash
 
-# descomente para depurar, mostrará no output a execução de cada linha deste script
+# Uncomment to debug, will show the execution of each line in this script
 # set -x
 
-# configuração para o script falhar em caso de erros ou variaves indefinidas
+# Configuration to make the script fail on errors or undefined variables
 set -eu -o pipefail
 
 source "$(dirname $0)/exec-functions.sh"
 
-inicializa "Processo de Ingestão de Dados"
+initialize "Model Training and Prediction Process"
 
-# Ativa o ambiente virtual
-ativa_venv
+# Activate the virtual environment
+activate_venv
 
-# Comando para executar o programa Python
-echo "Iniciando execução do script Python para a ingestão de dados..."
+# Command to run the Python script for data ingestion
+echo "Starting execution of the Python script for data ingestion..."
 python3 -m cmd.ingest_data
 
-# Mensagem final
-finaliza
+
+# Final message
+finalize
 
 exit 0

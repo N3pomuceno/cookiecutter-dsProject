@@ -137,7 +137,7 @@ To ensure proper alignment between team members and maintain clarity throughout 
 
 ### Transition from Notebook to Pipeline
 
-After thoroughly developing and validating your modeling approach using the Jupyter notebook (Modelling_{{project_name}}.ipynb), you are encouraged to:
+After thoroughly developing and validating your modeling approach using the Jupyter notebook (Modelling_{{cookiecutter.project_name}}.ipynb), you are encouraged to:
 
  * Modularize the logic by migrating key components into Python scripts:
 

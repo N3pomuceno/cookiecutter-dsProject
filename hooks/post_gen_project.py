@@ -5,8 +5,28 @@ import shutil
 # Path to the generated project root
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(
+    format="%(asctime)s [%(levelname)s]:%(lineno)d - %(message)s",
+    level=logging.INFO,
+)
 logger = logging.getLogger(__name__)
+
+
+def remove_gitkeep_files():
+    """
+    Removes all .gitkeep files from the generated project.
+    """
+    logger.info("Removing .gitkeep files...")
+
+    for root, dirs, files in os.walk(PROJECT_DIRECTORY):
+        for file in files:
+            if file == ".gitkeep":
+                file_path = os.path.join(root, file)
+                try:
+                    os.remove(file_path)
+                    logger.info(f"Removed {file_path}")
+                except Exception as e:
+                    logger.warning(f"Failed to remove {file_path}: {e}")
 
 
 def create_gitignore():
@@ -34,13 +54,14 @@ def remove_extra_files(project_type, use_jupyter, database, tests, ingestion):
     if ingestion == "No":
         files = [
             "cmd/ingest_data.py",
-            "cmd/ingest_data.sh",
+            "cmd/ingest.sh",
             "notebooks/ingest_{{cookiecutter.project_name}}.ipynb",
         ]
         for file in files:
             filepath = os.path.join(PROJECT_DIRECTORY, file)
             if os.path.exists(filepath):
                 os.remove(filepath)
+        logger.info(f"Removed {file} file.")
 
     # Remove Jupyter notebooks if not used
     if use_jupyter == "No":
@@ -57,6 +78,7 @@ def remove_extra_files(project_type, use_jupyter, database, tests, ingestion):
         shutil.rmtree("./models", ignore_errors=True)
         shutil.rmtree("./models_results", ignore_errors=True)
         shutil.rmtree("./cmd", ignore_errors=True)
+        logger.info("ML directory and files related successfully removed!")
 
     # Remove database-related files if no database is selected
     if database == "None":
@@ -66,11 +88,12 @@ def remove_extra_files(project_type, use_jupyter, database, tests, ingestion):
             if os.path.exists(filepath):
                 os.remove(filepath)
         shutil.rmtree("./sql", ignore_errors=True)
+        logger.info("Sql directory successfully removed!")
 
     # Remove tests if not used
     if tests == "No":
         shutil.rmtree("./tests", ignore_errors=True)
-    logger.info("Extra files successfully removed!")
+        logger.info("Tests directory successfully removed!")
 
 
 def main():
@@ -87,11 +110,13 @@ def main():
 
     create_gitignore()
     remove_extra_files(project_type, use_jupyter, database, tests, ingestion)
+    remove_gitkeep_files()
 
     logger.info("Post-processing completed!")
     logger.info(
         "Remember to create a virtual environment and install the project dependencies. 😉"
     )
+    logger.info("And please, have a nice project! 😊")
 
 
 if __name__ == "__main__":

@@ -2,93 +2,93 @@
 
 ######################################################################
 ##
-## exec-funcoes.sh
+## exec-functions.sh
 ##
-## DEFINE FUNCOES
+## DEFINES FUNCTIONS
 ##
-## - inicializa
-## - ativa_venv
-## - log
-## - finaliza
+## - initialize
+## - activate_venv
+## - log_message
+## - finalize
 ##
 ######################################################################
 
-### Escreve o cabeçalho e define logs
-### Parametros: descricao
+### Writes the header and sets up logs
+### Parameters: description
 ###
-inicializa () {
+initialize () {
 
     if (( $# < 1 )); then
-    log "Parametros insuficientes ($#) na chamada da função [inicializa]"
-    exit 10
+        log_message "Insufficient parameters ($#) in function call [initialize]"
+        exit 10
     fi
 
-    descricao="$1"
-    # Caminho da pasta onde os logs serão salvos
+    description="$1"
+
+    # Path where logs will be saved
     LOGS="./logs"
-    mkdir -p "$LOGS"  # Garante que a pasta existe
+    mkdir -p "$LOGS"  # Ensure the folder exists
 
-    # Nome base do sistema (ajuste conforme necessário)
-    sistema_sem_prefixo="exec"
+    # System base name (adjust if necessary)
+    system_base_name="exec"
 
-    # Ambiente: pode ser 'DEV', 'HML' ou 'PRD'
-    ENV="${ENV:-DEV}"  # Usa DEV por padrão, se não estiver definido
+    # Environment: can be 'DEV', 'HML' or 'PRD'
+    ENV="${ENV:-DEV}"  # Default to DEV if not set
 
-    # Monta o nome do arquivo de log
-    log_file="${LOGS}/${sistema_sem_prefixo,,}-$(date +"%Y-%m-%d_%H-%M-%S").log"
+    # Builds the log file name
+    log_file="${LOGS}/${system_base_name,,}-$(date +"%Y-%m-%d_%H-%M-%S").log"
 
-    # Redireciona todas as saídas padrão e de erro para o log (e também exibe no terminal)
+    # Redirect all stdout and stderr to the log (and also show in terminal)
     exec > >(tee -a "$log_file") 2>&1
 
-    # Mensagens de exemplo
+    # Example messages
     echo "==============================="
-    echo "    Iniciando script de execução..."
-    echo "    Descrição: $descricao"
-    echo "    Ambiente: Local"
+    echo "    Starting execution script..."
+    echo "    Description: $description"
+    echo "    Environment: Local"
     echo "    Log file: $log_file"
     echo "==============================="
 }
 
-### Ativa o venv python, criando se necessário
-### Parametros:
+### Activates the Python venv, creating if necessary
+### Parameters: none
 ###
-ativa_venv () {
+activate_venv () {
 
-    # Testa se está no windows ou linux
+    # Check if running on Windows or Linux/Mac
     if [ "${OS:-x}" == "Windows_NT" ]; then
         activate_path='Scripts/activate'
     else
         activate_path='bin/activate'
     fi
 
-    # Diretório da VENV
+    # VENV directory
     venv_dir="$(pwd)/cmd/.venv"
-    log "Diretório venv: ${venv_dir}"
+    log_message "Venv directory: ${venv_dir}"
 
-    # Verifica se a pasta .venv existe
+    # Check if the .venv folder exists
     if [ ! -d "${venv_dir}" ]; then
-        log "Erro: VENV não encontrada no caminho ${venv_dir}"
+        log_message "Error: VENV not found at ${venv_dir}"
         exit 20
     else
-        log "VENV encontrada. Ativando..."
+        log_message "VENV found. Activating..."
         source "${venv_dir}"/${activate_path}
     fi
 }
 
-### log
-### Parametros: mensagem-cfg
+### Logging function
+### Parameters: message
 ###
-log() {
+log_message() {
     echo "$(date "+%Y-%m-%d %H:%M:%S") INFO [$(basename $0)] $*"
 }
 
-
-### finaliza
-### Parametros: n/a
+### Finalizes and prints execution time
+### Parameters: none
 ###
-finaliza() {
-    horas=$((SECONDS / 3600))
-    minutos=$(( (SECONDS-horas*3600) / 60))
-    segundos=$((SECONDS % 60))
-    log  "$(printf "Tempo de execução: %02d:%02d:%02d" ${horas} ${minutos} ${segundos})"
+finalize() {
+    hours=$((SECONDS / 3600))
+    minutes=$(( (SECONDS-hours*3600) / 60))
+    seconds=$((SECONDS % 60))
+    log_message "$(printf "Execution time: %02d:%02d:%02d" ${hours} ${minutes} ${seconds})"
 }

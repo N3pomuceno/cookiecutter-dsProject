@@ -15,9 +15,11 @@ Possible future plans for this project:
 
 - [x] Create option to ingest data, in a way where we can do a pre work in updating data with a script
 
-- [ ] New tests with:
-    - [ ] Using with/without ingestion;
-    - [ ] Using with/without project type EDA;
+- [ ] Translate scripts to english.
+
+- [x] New tests with:
+    - [x] Using with/without ingestion;
+    - [x] Using with/without project type EDA;
 
 - [ ] Add a way to create a repository directly, which will probably require some pre-configured key on the machine. However, I believe it is feasible to link directly with GitHub/GitLab.  
 

@@ -1,23 +1,23 @@
 #!/bin/bash
 
-# descomente para depurar, mostrará no output a execução de cada linha deste script
+# Uncomment to debug, will show the execution of each line in this script
 # set -x
 
-# configuração para o script falhar em caso de erros ou variaves indefinidas
+# Configuration to make the script fail on errors or undefined variables
 set -eu -o pipefail
 
 source "$(dirname $0)/exec-functions.sh"
 
-inicializa "Processo de Previsão do Modelo"
+initialize "Model Training and Prediction Process"
 
-# Ativa o ambiente virtual
-ativa_venv
+# Activate the virtual environment
+activate_venv
 
-# Comando para executar o programa Python
-echo "Iniciando execução do script Python para a previsão do modelo..."
+# Command to run the Python script for making predictions with the model
+echo "Starting execution of the Python script for model prediction..."
 python3 -m cmd.predict_new_data
 
-# Mensagem final
-finaliza
+# Final message
+finalize
 
 exit 0
