@@ -63,7 +63,7 @@ activate_venv () {
     fi
 
     # VENV directory
-    venv_dir="$(pwd)/cmd/.venv"
+    venv_dir="$(pwd)/.venv"
     log_message "Venv directory: ${venv_dir}"
 
     # Check if the .venv folder exists

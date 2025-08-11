@@ -56,6 +56,7 @@ def remove_extra_files(project_type, use_jupyter, database, tests, ingestion):
             "cmd/ingest_data.py",
             "cmd/ingest.sh",
             "notebooks/ingest_{{cookiecutter.project_name}}.ipynb",
+            "cmd/ingest.py",
         ]
         for file in files:
             filepath = os.path.join(PROJECT_DIRECTORY, file)

@@ -1,11 +1,8 @@
 [project]
-name = {{cookiecutter.project_name}}
+name = "{{cookiecutter.project_name}}"
 version = "0.1.0"
 description = "Repositório dedicado a criar formatos padronizados de projetos de Data Science"
 readme = "README.md"
-[project]
-name = "teste"
-version = "0.1.0"
 requires-python = ">=3.12"
 dependencies = [
 {% if cookiecutter.database == "PostgreSQL" -%}
